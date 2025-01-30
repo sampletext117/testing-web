@@ -1,0 +1,37 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 YaBrowser/24.7.0.0 Safari/537.36" version="24.8.1">
+  <diagram name="Страница — 1" id="bV2v5aVXhxzuUe780Pt3">
+    <mxGraphModel dx="453" dy="631" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-1" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;Кандидат&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="380" width="50" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zmrYiqdgf_-kIbqsnegs-2" target="zmrYiqdgf_-kIbqsnegs-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Регистрация на выборы&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zmrYiqdgf_-kIbqsnegs-4" target="zmrYiqdgf_-kIbqsnegs-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-4" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Мониторинг процесса голосования&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="390" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zmrYiqdgf_-kIbqsnegs-6" target="zmrYiqdgf_-kIbqsnegs-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-6" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Проверка статуса участия&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="510" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="zmrYiqdgf_-kIbqsnegs-9" target="zmrYiqdgf_-kIbqsnegs-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zmrYiqdgf_-kIbqsnegs-9" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Просмотр, загрузка и редактирование предвыборной программы и избирательного счета&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="490" width="170" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
