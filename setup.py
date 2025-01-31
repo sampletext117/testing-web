@@ -9,6 +9,8 @@ setup(
         "pytest",
         "pytest-asyncio",
         "pytest-random-order",
-        "poetry"
+        "poetry",
+        "fastapi",
+        "pydantic"
     ]
 )
