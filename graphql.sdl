@@ -1,0 +1,162 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"""
+Определение запросов (чтения)
+"""
+type Query {
+  # Список/фильтрация
+  voters: [Voter!]!
+  voter(id: ID!): Voter
+
+  candidates: [Candidate!]!
+  candidate(id: ID!): Candidate
+
+  elections: [Election!]!
+  election(id: ID!): Election
+
+  # Список голосов, опциональный filter по electionId
+  votes(electionId: ID): [Vote!]!
+
+  # Результаты выборов (по ID)
+  results(electionId: ID!): ElectionResults
+}
+
+type Mutation {
+  # VOTER
+  createVoter(input: VoterInput!): Voter!
+  updateVoter(id: ID!, input: VoterUpdateInput!): Voter!   # Полное/частичное обновление избирателя
+  deleteVoter(id: ID!): Boolean!  # true, если удалён
+
+  # CANDIDATE
+  createCandidate(input: CandidateInput!): Candidate!
+  patchCandidate(id: ID!, patch: CandidatePatchInput!): Candidate!  # Частичное обновление
+  deleteCandidate(id: ID!): Boolean!
+
+  # ELECTION
+  createElection(input: ElectionInput!): Election!
+  patchElection(id: ID!, patch: ElectionPatchInput!): Election!     # Обновление/изменение выборов
+  deleteElection(id: ID!): Boolean!
+
+  # VOTE
+  createVote(input: VoteInput!): Vote!
+  removeVote(id: ID!): Boolean!   # отмена/удаление голоса
+}
+
+"""
+======================
+      TYPES
+======================
+"""
+
+type Voter {
+  voterId: ID!
+  fullName: String!
+  birthDate: String  # format: date
+  passportId: ID
+  createdAt: String  # format: date-time
+}
+
+type Candidate {
+  candidateId: ID!
+  fullName: String!
+  birthDate: String!
+  passportId: ID
+  campaignProgramId: ID
+  accountId: ID
+  createdAt: String
+}
+
+type Election {
+  electionId: ID!
+  electionName: String!
+  startDate: String!
+  endDate: String!
+  description: String
+}
+
+
+type Vote {
+  voteId: ID!
+  voterId: ID!
+  candidateId: ID!
+  electionId: ID!
+  voteDate: String  # format: date-time
+}
+
+type ElectionResults {
+  electionId: ID!
+  electionName: String
+  totalVotes: Int!
+  results: [CandidateWithCount!]!
+  winner: CandidateWithCount
+}
+
+type CandidateWithCount {
+  candidateId: ID!
+  candidateName: String!
+  voteCount: Int!
+}
+
+"""
+======================
+     INPUT TYPES
+======================
+"""
+
+input VoterInput {
+  fullName: String!
+  birthDate: String!
+  passportNumber: String!
+  issuedBy: String
+  issueDate: String
+  country: String!
+}
+
+
+input VoterUpdateInput {
+  fullName: String
+  birthDate: String
+  passportNumber: String
+  issuedBy: String
+  issueDate: String
+  country: String
+}
+
+input CandidateInput {
+  fullName: String!
+  birthDate: String!
+  passportNumber: String!
+  issuedBy: String
+  issueDate: String
+  country: String!
+  programDescription: String
+  initialBalance: Float
+}
+
+input CandidatePatchInput {
+  programDescription: String
+  balance: Float
+}
+
+input ElectionInput {
+  electionName: String!
+  startDate: String!
+  endDate: String!
+  description: String
+}
+
+input ElectionPatchInput {
+  electionName: String
+  startDate: String
+  endDate: String
+  description: String
+}
+
+input VoteInput {
+  voterId: ID!
+  candidateId: ID!
+  electionId: ID!
+}
