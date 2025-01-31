@@ -1,26 +1,20 @@
-main.py
-
 import argparse
 from datetime import datetime, date
 
-# Импорт use cases
-from usecases.register_voter import RegisterVoterUseCase
-from usecases.register_candidate import RegisterCandidateUseCase
-from usecases.vote import VoteUseCase
-from usecases.finalize_election import FinalizeElectionUseCase
+from election_app.usecases.register_voter import RegisterVoterUseCase
+from election_app.usecases.register_candidate import RegisterCandidateUseCase
+from election_app.usecases.vote import VoteUseCase
+from election_app.usecases.finalize_election import FinalizeElectionUseCase
 
-# Допустим, у нас есть дополнительный use case для создания выборов (не писали раньше, но добавим пример)
-# Вы можете написать аналогично register_election.py, здесь просто пример.
-from usecases.register_election import RegisterElectionUseCase
+from election_app.usecases.register_election import RegisterElectionUseCase
 
-# Импорт реализаций репозиториев из data_access
-from data_access.passport_repository import PostgresPassportRepository
-from data_access.voter_repository import PostgresVoterRepository
-from data_access.candidate_repository import PostgresCandidateRepository
-from data_access.campaign_program_repository import PostgresCampaignProgramRepository
-from data_access.candidate_account_repository import PostgresCandidateAccountRepository
-from data_access.election_repository import PostgresElectionRepository
-from data_access.vote_repository import PostgresVoteRepository
+from election_app.data_access.passport_repository import PostgresPassportRepository
+from election_app.data_access.voter_repository import PostgresVoterRepository
+from election_app.data_access.candidate_repository import PostgresCandidateRepository
+from election_app.data_access.campaign_program_repository import PostgresCampaignProgramRepository
+from election_app.data_access.candidate_account_repository import PostgresCandidateAccountRepository
+from election_app.data_access.election_repository import PostgresElectionRepository
+from election_app.data_access.vote_repository import PostgresVoteRepository
 
 
 def str_to_date(date_str: str) -> date:

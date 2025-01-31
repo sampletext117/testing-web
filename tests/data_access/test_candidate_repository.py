@@ -1,52 +1,78 @@
 import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, AsyncMock
 from datetime import date
 
-from election_app.data_access.candidate_repository import PostgresCandidateRepository
+from election_app.data_access.election_repository import PostgresElectionRepository
+from election_app.domain.entities.election import Election
 
-class TestPostgresCandidateRepository:
-    @patch("election_app.data_access.candidate_repository.get_connection")
-    def test_create_candidate(self, mock_get_conn):
-        fake_conn = MagicMock()
-        fake_cursor = MagicMock()
-        fake_cursor.fetchone.return_value = [55]  # candidate_id=55
-        fake_conn.cursor.return_value.__enter__.return_value = fake_cursor
+
+@pytest.mark.asyncio
+class TestPostgresElectionRepository:
+
+    @patch("election_app.data_access.election_repository.get_connection", new_callable=AsyncMock)
+    async def test_create_election(self, mock_get_conn):
+        # Arrange
+        fake_conn = AsyncMock()
+        # При INSERT ... RETURNING election_id, вернём {"election_id": 12}
+        fake_conn.fetchrow.return_value = {"election_id": 12}
         mock_get_conn.return_value = fake_conn
 
-        repo = PostgresCandidateRepository()
+        repo = PostgresElectionRepository()
 
-        cid = repo.create_candidate(
-            full_name="Иванов Иван",
-            birth_date=date(1980,1,1),
-            passport_id=100
+        # Act
+        eid = await repo.create_election(
+            election_name="Test Election",
+            start_date=date(2025,1,1),
+            end_date=date(2025,1,10),
+            description="Some desc"
         )
-        assert cid == 55
-        fake_cursor.execute.assert_called_once()
-        assert "INSERT INTO elections.candidate" in fake_cursor.execute.call_args[0][0]
 
-    @patch("election_app.data_access.candidate_repository.get_connection")
-    def test_update_candidate_program_and_account(self, mock_get_conn):
-        fake_conn = MagicMock()
-        fake_cursor = MagicMock()
-        fake_conn.cursor.return_value.__enter__.return_value = fake_cursor
+        # Assert
+        assert eid == 12
+        fake_conn.fetchrow.assert_called_once()
+        sql_executed = fake_conn.fetchrow.call_args[0][0]
+        assert "INSERT INTO elections.election" in sql_executed
+
+    @patch("election_app.data_access.election_repository.get_connection", new_callable=AsyncMock)
+    async def test_find_election_by_id_found(self, mock_get_conn):
+        # Arrange
+        fake_conn = AsyncMock()
+        # Вернём строку, аналогичную тому, что отдаёт реальный fetchrow,
+        # но с ключами, соответствующими колонкам.
+        fake_conn.fetchrow.return_value = {
+            "election_id": 12,
+            "election_name": "Test E",
+            "start_date": date(2025,1,1),
+            "end_date": date(2025,1,10),
+            "description": "desc"
+        }
         mock_get_conn.return_value = fake_conn
 
-        repo = PostgresCandidateRepository()
-        repo.update_candidate_program_and_account(55, 200, 300)
+        repo = PostgresElectionRepository()
 
-        fake_cursor.execute.assert_called_once()
-        sql_executed = fake_cursor.execute.call_args[0][0]
-        assert "UPDATE elections.candidate" in sql_executed
-        assert "campaign_program_id" in sql_executed
+        # Act
+        e = await repo.find_election_by_id(12)
 
-    @patch("election_app.data_access.candidate_repository.get_connection")
-    def test_find_candidate_by_id_not_found(self, mock_get_conn):
-        fake_conn = MagicMock()
-        fake_cursor = MagicMock()
-        fake_cursor.fetchone.return_value = None
-        fake_conn.cursor.return_value.__enter__.return_value = fake_cursor
+        # Assert
+        assert e is not None
+        assert e.election_name == "Test E"
+        fake_conn.fetchrow.assert_called_once()
+        sql_executed = fake_conn.fetchrow.call_args[0][0]
+        assert "SELECT election_id" in sql_executed
+
+    @patch("election_app.data_access.election_repository.get_connection", new_callable=AsyncMock)
+    async def test_update_election_status(self, mock_get_conn):
+        # Arrange
+        fake_conn = AsyncMock()
         mock_get_conn.return_value = fake_conn
 
-        repo = PostgresCandidateRepository()
-        candidate = repo.find_candidate_by_id(999)
-        assert candidate is None
+        repo = PostgresElectionRepository()
+
+        # Act
+        await repo.update_election_status(12, "FINISHED")
+
+        # Assert
+        fake_conn.execute.assert_called_once()
+        sql_executed = fake_conn.execute.call_args[0][0]
+        assert "UPDATE elections.election" in sql_executed
+        assert "WHERE election_id = $2" in sql_executed

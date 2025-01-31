@@ -28,7 +28,7 @@ class RegisterVoterUseCase:
         self.voter_repo = voter_repository
         self.passport_repo = passport_repository
 
-    def execute(
+    async def execute(
         self,
         full_name: str,
         birth_date: date,
@@ -54,12 +54,12 @@ class RegisterVoterUseCase:
             raise ValueError("Только граждане РФ могут быть избирателями.")
 
         # 3. Проверить, что паспорт ещё не зарегистрирован
-        existing_passport = self.passport_repo.find_by_number(passport_number)
+        existing_passport = await self.passport_repo.find_by_number(passport_number)
         if existing_passport is not None:
             raise ValueError("Паспорт с таким номером уже зарегистрирован.")
 
         # 4. Создать запись в таблице passport
-        passport_id = self.passport_repo.create_passport(
+        passport_id = await self.passport_repo.create_passport(
             passport_number=passport_number,
             issued_by=issued_by,
             issue_date=issue_date,
@@ -67,7 +67,7 @@ class RegisterVoterUseCase:
         )
 
         # 5. Создать запись в таблице voter
-        voter_id = self.voter_repo.create_voter(
+        voter_id = await self.voter_repo.create_voter(
             full_name=full_name,
             birth_date=birth_date,
             passport_id=passport_id

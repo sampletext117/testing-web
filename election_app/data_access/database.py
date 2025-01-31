@@ -1,22 +1,21 @@
-import psycopg2
-from psycopg2 import sql
-from typing import Optional
+import asyncpg
+import os
 
-# Задайте свои параметры подключения к БД
-DB_NAME = "elections_db"
-DB_USER = "election_admin"
-DB_PASSWORD = "admin_password"
-DB_HOST = "localhost"
-DB_PORT = 5432
+DB_NAME = os.getenv("DB_NAME", "elections_db")
+DB_USER = os.getenv("DB_USER", "election_admin")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "admin_password")
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_PORT = int(os.getenv("DB_PORT", 5432))
 
 
-def get_connection():
+async def get_connection():
     """
-    Возвращает новое соединение psycopg2 с PostgreSQL.
-    В реальном проекте используйте пул соединений или ORM.
+    Возвращает соединение asyncpg (Connection).
+    В реальном проекте чаще используют пул соединений, 
+    чтобы не создавать/закрывать соединение на каждый запрос.
     """
-    conn = psycopg2.connect(
-        dbname=DB_NAME,
+    conn = await asyncpg.connect(
+        database=DB_NAME,
         user=DB_USER,
         password=DB_PASSWORD,
         host=DB_HOST,

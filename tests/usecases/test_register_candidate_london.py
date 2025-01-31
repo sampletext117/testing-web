@@ -1,17 +1,19 @@
 import pytest
-from unittest.mock import MagicMock
+from unittest.mock import AsyncMock
 from datetime import date
+
 from election_app.usecases.register_candidate import RegisterCandidateUseCase
 
 
+@pytest.mark.asyncio
 class TestRegisterCandidateUseCaseLondon:
 
-    def test_successful_candidate_registration(self):
+    async def test_successful_candidate_registration(self):
         # Arrange
-        mock_candidate_repo = MagicMock()
-        mock_passport_repo = MagicMock()
-        mock_program_repo = MagicMock()
-        mock_account_repo = MagicMock()
+        mock_candidate_repo = AsyncMock()
+        mock_passport_repo = AsyncMock()
+        mock_program_repo = AsyncMock()
+        mock_account_repo = AsyncMock()
 
         # Настраиваем "поведение" репозиториев
         #   find_by_number -> возвращает None, т.е. паспорт не занят
@@ -33,7 +35,7 @@ class TestRegisterCandidateUseCaseLondon:
         )
 
         # Act
-        candidate_id = use_case.execute(
+        candidate_id = await use_case.execute(
             full_name="Петров Петр",
             birth_date=date(1980, 1, 1),
             passport_number="CAND 123",
@@ -46,21 +48,22 @@ class TestRegisterCandidateUseCaseLondon:
 
         # Assert
         assert candidate_id == 10
-        mock_passport_repo.find_by_number.assert_called_once_with("CAND 123")
-        mock_passport_repo.create_passport.assert_called_once()
-        mock_candidate_repo.create_candidate.assert_called_once()
-        mock_candidate_repo.update_candidate_program_and_account.assert_called_once_with(
+
+        mock_passport_repo.find_by_number.assert_awaited_once_with("CAND 123")
+        mock_passport_repo.create_passport.assert_awaited_once()
+        mock_candidate_repo.create_candidate.assert_awaited_once()
+        mock_candidate_repo.update_candidate_program_and_account.assert_awaited_once_with(
             candidate_id=10, campaign_program_id=200, account_id=300
         )
 
-    def test_candidate_under_35(self):
+    async def test_candidate_under_35(self):
         """
         Тест: кандидат младше 35 -> ValueError
         """
-        mock_candidate_repo = MagicMock()
-        mock_passport_repo = MagicMock()
-        mock_program_repo = MagicMock()
-        mock_account_repo = MagicMock()
+        mock_candidate_repo = AsyncMock()
+        mock_passport_repo = AsyncMock()
+        mock_program_repo = AsyncMock()
+        mock_account_repo = AsyncMock()
 
         use_case = RegisterCandidateUseCase(
             mock_candidate_repo,
@@ -70,7 +73,7 @@ class TestRegisterCandidateUseCaseLondon:
         )
 
         with pytest.raises(ValueError) as exc_info:
-            use_case.execute(
+            await use_case.execute(
                 full_name="Сидоров Молодой",
                 birth_date=date(1995, 1, 1),  # ему около 28
                 passport_number="CAND 555",
@@ -82,14 +85,14 @@ class TestRegisterCandidateUseCaseLondon:
             )
         assert "не младше 35 лет" in str(exc_info.value)
 
-    def test_candidate_not_russian(self):
+    async def test_candidate_not_russian(self):
         """
         Тест: страна != "Россия" -> ValueError
         """
-        mock_candidate_repo = MagicMock()
-        mock_passport_repo = MagicMock()
-        mock_program_repo = MagicMock()
-        mock_account_repo = MagicMock()
+        mock_candidate_repo = AsyncMock()
+        mock_passport_repo = AsyncMock()
+        mock_program_repo = AsyncMock()
+        mock_account_repo = AsyncMock()
 
         use_case = RegisterCandidateUseCase(
             mock_candidate_repo,
@@ -99,7 +102,7 @@ class TestRegisterCandidateUseCaseLondon:
         )
 
         with pytest.raises(ValueError) as exc_info:
-            use_case.execute(
+            await use_case.execute(
                 full_name="Mr. John",
                 birth_date=date(1970, 5, 20),
                 passport_number="FOREIGN 001",

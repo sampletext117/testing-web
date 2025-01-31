@@ -1,6 +1,6 @@
 from typing import Optional
 from datetime import datetime
-import psycopg2
+import asyncpg
 
 from election_app.domain.repositories.icandidate_account_repository import ICandidateAccountRepository
 from election_app.domain.entities.candidate_account import CandidateAccount
@@ -8,71 +8,65 @@ from election_app.data_access.database import get_connection
 
 
 class PostgresCandidateAccountRepository(ICandidateAccountRepository):
-    def create_account(self, candidate_id: int, balance: float) -> int:
+    async def create_account(self, candidate_id: int, balance: float) -> int:
         """
         Создаёт запись о счёте, возвращает account_id.
         """
-        conn = get_connection()
+        conn = await get_connection()
         try:
-            with conn:
-                with conn.cursor() as cur:
-                    cur.execute(
-                        """
-                        INSERT INTO elections.candidate_account (candidate_id, balance, last_transaction_date)
-                        VALUES (%s, %s, %s)
-                        RETURNING account_id
-                        """,
-                        (candidate_id, balance, datetime.now())
-                    )
-                    new_id = cur.fetchone()[0]
-            return new_id
+            now = datetime.now()
+            row = await conn.fetchrow(
+                """
+                INSERT INTO elections.candidate_account (candidate_id, balance, last_transaction_date)
+                VALUES ($1, $2, $3)
+                RETURNING account_id
+                """,
+                candidate_id, balance, now
+            )
+            return row["account_id"] if row else 0
         finally:
-            conn.close()
+            await conn.close()
 
-    def find_by_candidate_id(self, candidate_id: int) -> Optional[CandidateAccount]:
+    async def find_by_candidate_id(self, candidate_id: int) -> Optional[CandidateAccount]:
         """
-        Ищет счёт по candidate_id.
+        Ищет счёт по candidate_id, возвращает CandidateAccount или None.
         """
-        conn = get_connection()
+        conn = await get_connection()
         try:
-            with conn:
-                with conn.cursor() as cur:
-                    cur.execute(
-                        """
-                        SELECT account_id, candidate_id, balance, last_transaction_date
-                        FROM elections.candidate_account
-                        WHERE candidate_id = %s
-                        """,
-                        (candidate_id,)
-                    )
-                    row = cur.fetchone()
-                    if row:
-                        return CandidateAccount(
-                            account_id=row[0],
-                            candidate_id=row[1],
-                            balance=float(row[2]),
-                            last_transaction_date=row[3]
-                        )
-                    return None
+            row = await conn.fetchrow(
+                """
+                SELECT account_id, candidate_id, balance, last_transaction_date
+                FROM elections.candidate_account
+                WHERE candidate_id = $1
+                """,
+                candidate_id
+            )
+            if row:
+                return CandidateAccount(
+                    account_id=row["account_id"],
+                    candidate_id=row["candidate_id"],
+                    balance=float(row["balance"]),
+                    last_transaction_date=row["last_transaction_date"]
+                )
+            return None
         finally:
-            conn.close()
+            await conn.close()
 
-    def update_balance(self, account_id: int, new_balance: float) -> None:
+    async def update_balance(self, account_id: int, new_balance: float) -> None:
         """
         Обновляет баланс счёта.
         """
-        conn = get_connection()
+        conn = await get_connection()
         try:
-            with conn:
-                with conn.cursor() as cur:
-                    cur.execute(
-                        """
-                        UPDATE elections.candidate_account
-                        SET balance = %s,
-                            last_transaction_date = %s
-                        WHERE account_id = %s
-                        """,
-                        (new_balance, datetime.now(), account_id)
-                    )
+            now = datetime.now()
+            await conn.execute(
+                """
+                UPDATE elections.candidate_account
+                SET balance = $1,
+                    last_transaction_date = $2
+                WHERE account_id = $3
+                """,
+                new_balance, now, account_id
+            )
         finally:
-            conn.close()
+            await conn.close()

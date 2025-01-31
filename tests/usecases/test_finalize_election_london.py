@@ -1,22 +1,25 @@
 import pytest
-from unittest.mock import MagicMock
-from datetime import date
+from unittest.mock import AsyncMock
+from datetime import date, datetime
+
 from election_app.usecases.finalize_election import FinalizeElectionUseCase
 
+
+@pytest.mark.asyncio
 class TestFinalizeElectionUseCaseLondon:
 
-
-    def test_finalize_successful(self):
+    async def test_finalize_successful(self):
         """
         Тест: выборы существуют, уже закончились, есть голоса ->
         возвращаем структуру results со списком кандидатов и winner.
         """
-        mock_election_repo = MagicMock()
-        mock_vote_repo = MagicMock()
-        mock_candidate_repo = MagicMock()
+        mock_election_repo = AsyncMock()
+        mock_vote_repo = AsyncMock()
+        mock_candidate_repo = AsyncMock()
 
-        # Настраиваем возвращаемые объекты
-        election_obj = MagicMock(
+        # Настраиваем возвращаемые объекты:
+        # Выборы с end_date < сегодня => "закончились"
+        election_obj = AsyncMock(
             election_id=1,
             election_name="Выборы 2025",
             start_date=date(2025, 1, 1),
@@ -25,19 +28,22 @@ class TestFinalizeElectionUseCaseLondon:
         )
         mock_election_repo.find_election_by_id.return_value = election_obj
 
-        # Будем считать, что сейчас 3 января 2025, т.е. выборы закончились 2 января
-        # -> need to mock datetime.now()? Можно сделать patch, но в данном примере
-        #   допустим, что всё ок.
-
+        # Голоса по кандидатам (candidate_id -> count)
         mock_vote_repo.count_votes_by_election.return_value = {
-            100: 50,  # кандидат #1 набрал 50 голосов
-            200: 70   # кандидат #2 набрал 70 голосов
+            100: 50,
+            200: 70
         }
 
-        # Кандидат #100
-        mock_candidate_repo.find_candidate_by_id.side_effect = lambda cid: MagicMock(
-            candidate_id=cid, full_name=f"Candidate {cid}"
-        )
+        # Для разных candidate_id вернём кандидатов с разными именами
+        async def mock_find_candidate_by_id(cid):
+            # эмулируем объект-кандидат
+            # (можно вернуть реальный Candidate, MagicMock или что-то подобное)
+            c = AsyncMock()
+            c.candidate_id = cid
+            c.full_name = f"Candidate {cid}"
+            return c
+
+        mock_candidate_repo.find_candidate_by_id.side_effect = mock_find_candidate_by_id
 
         use_case = FinalizeElectionUseCase(
             election_repository=mock_election_repo,
@@ -46,25 +52,29 @@ class TestFinalizeElectionUseCaseLondon:
         )
 
         # Act
-        result = use_case.execute(election_id=1)
+        result = await use_case.execute(election_id=1)
 
         # Assert
         assert result["election_id"] == 1
         assert len(result["results"]) == 2
+        # Победитель - кандидат 200, у которого 70 голосов
         assert result["winner"]["candidate_id"] == 200
         assert result["winner"]["vote_count"] == 70
 
-        mock_election_repo.find_election_by_id.assert_called_once_with(1)
-        mock_vote_repo.count_votes_by_election.assert_called_once_with(1)
+        mock_election_repo.find_election_by_id.assert_awaited_once_with(1)
+        mock_vote_repo.count_votes_by_election.assert_awaited_once_with(1)
+        # Для каждого cand_id (100, 200)  проверится find_candidate_by_id
+        assert mock_candidate_repo.find_candidate_by_id.await_count == 2
 
-    def test_election_not_found(self):
+    async def test_election_not_found(self):
         """
         Тест: выборы не найдены -> ValueError
         """
-        mock_election_repo = MagicMock()
-        mock_vote_repo = MagicMock()
-        mock_candidate_repo = MagicMock()
+        mock_election_repo = AsyncMock()
+        mock_vote_repo = AsyncMock()
+        mock_candidate_repo = AsyncMock()
 
+        # Не нашли выборы
         mock_election_repo.find_election_by_id.return_value = None
 
         use_case = FinalizeElectionUseCase(
@@ -74,23 +84,24 @@ class TestFinalizeElectionUseCaseLondon:
         )
 
         with pytest.raises(ValueError) as exc_info:
-            use_case.execute(election_id=999)
+            await use_case.execute(election_id=999)
         assert "не найдены" in str(exc_info.value)
 
-    def test_election_not_ended_yet(self):
+    async def test_election_not_ended_yet(self):
         """
         Тест: выборы существуют, но end_date >= сегодня -> ValueError,
         т.е. итоги подводить рано.
         """
-        mock_election_repo = MagicMock()
-        mock_vote_repo = MagicMock()
-        mock_candidate_repo = MagicMock()
+        mock_election_repo = AsyncMock()
+        mock_vote_repo = AsyncMock()
+        mock_candidate_repo = AsyncMock()
 
-        election_obj = MagicMock(
+        # Выборы ещё не закончились
+        election_obj = AsyncMock(
             election_id=2,
             election_name="Early Elections",
             start_date=date(2025, 1, 1),
-            end_date=date(2050, 1, 1),  # закончится ещё нескоро
+            end_date=date(2050, 1, 1),
             description="Some desc"
         )
         mock_election_repo.find_election_by_id.return_value = election_obj
@@ -102,5 +113,5 @@ class TestFinalizeElectionUseCaseLondon:
         )
 
         with pytest.raises(ValueError) as exc_info:
-            use_case.execute(election_id=2)
-        assert "выборы ещё не завершены" in str(exc_info.value)
+            await use_case.execute(election_id=2)
+        assert "ещё не завершены" in str(exc_info.value)

@@ -5,8 +5,10 @@ setup(
     version="1.2",
     packages=find_packages(),
     install_requires=[
-        "psycopg2",
+        "asyncpg",
         "pytest",
-        "pytest-random-order"
+        "pytest-asyncio",
+        "pytest-random-order",
+        "poetry"
     ]
 )

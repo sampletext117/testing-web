@@ -21,7 +21,7 @@ class VoteUseCase:
         self.election_repo = election_repository
         self.vote_repo = vote_repository
 
-    def execute(
+    async def execute(
         self,
         voter_id: int,
         candidate_id: int,
@@ -32,15 +32,15 @@ class VoteUseCase:
         Возвращает идентификатор (vote_id) созданной записи.
         """
 
-        voter = self.voter_repo.find_voter_by_id(voter_id)
+        voter = await self.voter_repo.find_voter_by_id(voter_id)
         if not voter:
             raise ValueError(f"Избиратель с id={voter_id} не найден.")
 
-        candidate = self.candidate_repo.find_candidate_by_id(candidate_id)
+        candidate = await self.candidate_repo.find_candidate_by_id(candidate_id)
         if not candidate:
             raise ValueError(f"Кандидат с id={candidate_id} не найден.")
 
-        election = self.election_repo.find_election_by_id(election_id)
+        election = await self.election_repo.find_election_by_id(election_id)
         if not election:
             raise ValueError(f"Выборы с id={election_id} не найдены.")
 
@@ -50,11 +50,11 @@ class VoteUseCase:
         if not (election.start_date <= now <= election.end_date):
             raise ValueError("Выборы закрыты или ещё не начались.")
 
-        if self.vote_repo.has_already_voted(voter_id, election_id):
+        if await self.vote_repo.has_already_voted(voter_id, election_id):
             raise ValueError("Избиратель уже голосовал на этих выборах.")
 
         # 5. Записать голос
-        vote_id = self.vote_repo.record_vote(
+        vote_id = await self.vote_repo.record_vote(
             voter_id=voter_id,
             candidate_id=candidate_id,
             election_id=election_id
