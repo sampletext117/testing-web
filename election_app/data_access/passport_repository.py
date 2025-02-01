@@ -32,6 +32,8 @@ class PostgresPassportRepository(IPassportRepository):
             if row:
                 return row["passport_id"]
             return 0
+        except Exception as e:
+            print(e)
         finally:
             await conn.close()
 

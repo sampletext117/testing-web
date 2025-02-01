@@ -11,6 +11,7 @@ setup(
         "pytest-random-order",
         "poetry",
         "fastapi",
-        "pydantic"
+        "pydantic",
+        "uvicorn"
     ]
 )

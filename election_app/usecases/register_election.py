@@ -1,6 +1,7 @@
 from datetime import date
 from typing import Optional
 
+
 class RegisterElectionUseCase:
     def __init__(self, election_repository):
         self.election_repo = election_repository

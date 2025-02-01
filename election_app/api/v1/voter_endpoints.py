@@ -7,17 +7,18 @@ from election_app.api.schemas.voter_schemas import (
 )
 
 from election_app.data_access.voter_repository import PostgresVoterRepository
+from election_app.data_access.passport_repository import PostgresPassportRepository
 
 from election_app.usecases.register_voter import RegisterVoterUseCase
 
 router = APIRouter()
 
 voter_repo = PostgresVoterRepository()
+passport_repo = PostgresPassportRepository()
 
 
 @router.get("/voters", response_model=List[VoterResponse], summary="Список избирателей")
 async def list_voters():
-
     try:
         voters_db = await voter_repo.list_all_voters()
     except Exception as e:
@@ -39,32 +40,22 @@ async def list_voters():
 
 @router.post("/voters", response_model=VoterResponse, status_code=status.HTTP_201_CREATED)
 async def create_voter(req: VoterCreateRequest):
-    # Если хотим полноценно проверить возраст, гражданство, паспорт - лучше вызвать use case:
-    #
-    # use_case = RegisterVoterUseCase(voter_repo, passport_repo)
-    # try:
-    #     voter_id = await use_case.execute(...)
-    # except ValueError as e:
-    #     raise HTTPException(status_code=400, detail=str(e))
-    #
-    # Но для примера - напрямую:
-
+    use_case = RegisterVoterUseCase(voter_repo, passport_repo)
     try:
-        new_id = await voter_repo.create_voter(
-            full_name=req.full_name,
-            birth_date=req.birth_date,
-            passport_id= int(req.passport_number),
-
-        )
+        voter_id = await use_case.execute(full_name=req.full_name,
+                                          birth_date=req.birth_date,
+                                          passport_number=req.passport_number,
+                                          issued_by=req.issued_by,
+                                          issue_date=req.issue_date,
+                                          country=req.country
+                                          )
     except ValueError as e:
-        raise HTTPException(status_code=409, detail=str(e))
+        raise HTTPException(status_code=400, detail=str(e))
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-    if not new_id:
-        raise HTTPException(status_code=400, detail="Не удалось создать избирателя (repository error)")
-
-    created = await voter_repo.find_voter_by_id(new_id)
+    created = await voter_repo.find_voter_by_id(voter_id)
     if not created:
         raise HTTPException(status_code=500, detail="Избиратель не найден после создания")
 

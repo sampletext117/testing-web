@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date, datetime
 
+
 class CandidateCreateRequest(BaseModel):
     full_name: str = Field(..., example="Иванов Иван Иванович")
     birth_date: date = Field(..., example="1980-05-20")

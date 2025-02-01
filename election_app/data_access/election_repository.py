@@ -4,7 +4,7 @@ election_repository.py
 Асинхронная реализация IElectionRepository с использованием asyncpg.
 """
 
-from typing import Optional
+from typing import Optional, List
 from datetime import date
 import asyncpg
 
@@ -14,6 +14,7 @@ from election_app.data_access.database import get_connection
 
 
 class PostgresElectionRepository(IElectionRepository):
+
     async def create_election(
         self,
         election_name: str,
@@ -80,5 +81,86 @@ class PostgresElectionRepository(IElectionRepository):
                 """,
                 new_status, election_id
             )
+        finally:
+            await conn.close()
+
+    async def patch_election(
+        self,
+        election_id: int,
+        new_name: str,
+        new_start: date,
+        new_end: date,
+        new_desc: str
+    ) -> bool:
+        """
+        Частично обновляет поля в таблице election:
+         - election_name
+         - start_date
+         - end_date
+         - description
+        Возвращает True при успехе, False если не было изменений или выборы не найдены.
+        """
+        conn = await get_connection()
+        try:
+            result = await conn.execute(
+                """
+                UPDATE elections.election
+                SET election_name = $2,
+                    start_date = $3,
+                    end_date = $4,
+                    description = $5
+                WHERE election_id = $1
+                """,
+                election_id, new_name, new_start, new_end, new_desc
+            )
+            row_count = int(result.split(" ")[1]) if result else 0
+            return (row_count > 0)
+        finally:
+            await conn.close()
+
+
+    async def delete_election(self, election_id: int) -> bool:
+        """
+        Удаляет запись о выборах, возвращает True/False (успешно/нет).
+        """
+        conn = await get_connection()
+        try:
+            result = await conn.execute(
+                """
+                DELETE FROM elections.election
+                WHERE election_id = $1
+                """,
+                election_id
+            )
+            row_count = int(result.split(" ")[1]) if result else 0
+            return (row_count > 0)
+        finally:
+            await conn.close()
+
+
+    async def list_all_elections(self) -> List[Election]:
+        """
+        Возвращает список всех записей в таблице election
+        (Ordered by election_id, например).
+        """
+        conn = await get_connection()
+        try:
+            rows = await conn.fetch(
+                """
+                SELECT election_id, election_name, start_date, end_date, description
+                FROM elections.election
+                ORDER BY election_id
+                """
+            )
+            result = []
+            for r in rows:
+                result.append(Election(
+                    election_id=r["election_id"],
+                    election_name=r["election_name"],
+                    start_date=r["start_date"],
+                    end_date=r["end_date"],
+                    description=r["description"]
+                ))
+            return result
         finally:
             await conn.close()

@@ -1,12 +1,3 @@
-"""
-election_app/api/v1/candidate_endpoints.py
-
-Полная реализация эндпоинтов для работы с Кандидатами.
-Использует:
- - асинхронные репозитории (candidate, passport, program, account)
- - use case RegisterCandidateUseCase при создании кандидата
-"""
-
 from fastapi import APIRouter, HTTPException, status
 from typing import List
 
@@ -31,9 +22,9 @@ passport_repo = PostgresPassportRepository()
 program_repo = PostgresCampaignProgramRepository()
 account_repo = PostgresCandidateAccountRepository()
 
+
 @router.get("/candidates", response_model=List[CandidateResponse])
 async def list_candidates():
-    # Предполагаем, что в candidate_repo есть метод list_candidates(), который возвращает список ORM-объектов
     candidates_db = await candidate_repo.list_candidates()
     results = []
     for c in candidates_db:
@@ -76,7 +67,6 @@ async def create_candidate(req: CandidateCreateRequest):
         # Если use case кидает ValueError (несовершеннолетний, не РФ и т.д.)
         raise HTTPException(status_code=400, detail=str(e))
 
-    # Получаем созданного кандидата из репозитория для возвращения клиенту
     created = await candidate_repo.find_candidate_by_id(candidate_id)
     if not created:
         raise HTTPException(status_code=500, detail="Кандидат не найден после создания (ошибка репо)")
@@ -142,14 +132,10 @@ async def patch_candidate(candidate_id: int, patch: CandidatePatchRequest):
 
 @router.delete("/candidates/{candidate_id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_candidate(candidate_id: int):
-    """
-    Удаление кандидата из системы
-    """
     candidate = await candidate_repo.find_candidate_by_id(candidate_id)
     if not candidate:
         raise HTTPException(status_code=404, detail="Кандидат не найден")
 
-    # Предположим, что репозиторий возвращает True/False по итогу
     success = await candidate_repo.delete_candidate(candidate_id)
     if not success:
         raise HTTPException(status_code=500, detail="Не удалось удалить кандидата")

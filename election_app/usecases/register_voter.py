@@ -3,10 +3,6 @@ from typing import Optional
 
 
 def calculate_age(birth_date: date) -> int:
-    """
-    Утилитарная функция для вычисления полного возраста
-    (упрощённо — разница по годам).
-    """
     today = date.today()
     years = today.year - birth_date.year
     # Если дата рождения ещё не наступила в текущем году, вычитаем 1
@@ -21,10 +17,7 @@ class RegisterVoterUseCase:
         voter_repository,    # IVoterRepository
         passport_repository  # IPassportRepository
     ):
-        """
-        :param voter_repository: Интерфейс репозитория для таблицы voter
-        :param passport_repository: Интерфейс репозитория для таблицы passport
-        """
+
         self.voter_repo = voter_repository
         self.passport_repo = passport_repository
 
@@ -37,10 +30,6 @@ class RegisterVoterUseCase:
         issue_date: Optional[date],
         country: str
     ) -> int:
-        """
-        Регистрирует нового избирателя, создаёт запись в таблицах passport и voter.
-        Возвращает идентификатор нового избирателя (voter_id).
-        """
 
         # 1. Проверка возраста (должен быть >= 18)
         age = calculate_age(birth_date)

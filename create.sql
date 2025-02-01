@@ -1,9 +1,9 @@
 CREATE SCHEMA IF NOT EXISTS elections;
 
 -- DROP schema elections cascade;
-
-
-
+--
+--
+--
 -- delete * from elections.candidate;
 -- delete * from elections.voter;
 -- delete * from elections.vote;
@@ -21,6 +21,12 @@ CREATE TABLE elections.passport (
     issue_date DATE,                           -- Дата выдачи
     country VARCHAR(100) NOT NULL              -- Страна, выдавшая паспорт
 );
+
+INSERT INTO elections.passport (passport_number, issued_by, issue_date, country)
+VALUES (222223, 'МВД г. Москвы', '2017-12-11', 'Россия');
+alter table elections.passport alter column passport_number
+
+select * from elections.passport;
 
 CREATE TABLE elections.candidate (
     candidate_id SERIAL PRIMARY KEY,           -- Уникальный идентификатор кандидата
