@@ -1,0 +1,96 @@
+stages:
+  - unit
+  - integration
+  - e2e
+  - report
+
+variables:
+  # Переменные для подключения к БД (должны совпадать с тем, что прописаны в docker-compose.yml)
+  DB_HOST: db
+  DB_PORT: "5432"
+  DB_USER: testuser
+  DB_PASSWORD: testpass
+  DB_NAME: testdb
+  # Переменная для Allure (если требуется)
+  ALLURE_RESULTS_DIR: "allure-results"
+  ALLURE_REPORT_DIR: "allure-report"
+
+# Джоб для unit-тестов (если они уже настроены)
+unit_tests:
+  stage: unit
+  image: python:3.10-slim
+  script:
+    - pip install --no-cache-dir -r requirements.txt
+    - pytest tests/unit -v
+  artifacts:
+    paths:
+      - .pytest_cache/
+
+# Джоб для интеграционных тестов
+integration_tests:
+  stage: integration
+  image: docker:20.10.16  # Используем docker образ (или свой кастомный образ)
+  services:
+    - name: postgres:14
+      alias: db
+  variables:
+    # Порт, который видит контейнер тестов, может отличаться
+    POSTGRES_DB: testdb
+    POSTGRES_USER: testuser
+    POSTGRES_PASSWORD: testpass
+  before_script:
+    - apk add --no-cache python3 py3-pip bash git
+    - pip install --no-cache-dir -r requirements.txt
+    - pip install pytest pytest-asyncio
+    - python scripts/setup_db.py
+  script:
+    - pytest tests/integration -v
+  artifacts:
+    paths:
+      - allure-results/
+    reports:
+      junit: report.xml
+
+# Джоб для E2E-тестов
+e2e_tests:
+  stage: e2e
+  image: docker:20.10.16
+  services:
+    - name: postgres:14
+      alias: db
+  variables:
+    POSTGRES_DB: testdb
+    POSTGRES_USER: testuser
+    POSTGRES_PASSWORD: testpass
+  before_script:
+    - apk add --no-cache python3 py3-pip bash git
+    - pip install --no-cache-dir -r requirements.txt
+    - pip install pytest pytest-asyncio httpx
+    - python scripts/setup_db.py
+    # Запускаем приложение в фоне (например, через uvicorn)
+    - nohup uvicorn election_app.api.main:app --host 0.0.0.0 --port 8000 &
+    - sleep 5  # Ждем, пока приложение поднимется
+  script:
+    - pytest tests/e2e -v
+  artifacts:
+    paths:
+      - allure-results/
+    reports:
+      junit: e2e-report.xml
+
+# Джоб для генерации отчёта Allure
+allure_report:
+  stage: report
+  image: openjdk:11-jre-slim
+  dependencies:
+    - integration_tests
+    - e2e_tests
+  script:
+    # Устанавливаем Allure Commandline (здесь пример для Linux)
+    - wget https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz
+    - tar -zxvf allure-2.21.0.tgz -C /opt/
+    - export PATH=$PATH:/opt/allure-2.21.0/bin
+    - allure generate $ALLURE_RESULTS_DIR --clean -o $ALLURE_REPORT_DIR
+  artifacts:
+    paths:
+      - $ALLURE_REPORT_DIR
