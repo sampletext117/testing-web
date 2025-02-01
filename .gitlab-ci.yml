@@ -20,7 +20,8 @@ unit_tests:
   image: python:3.10-slim
   script:
     - pip install --no-cache-dir -r requirements.txt
-    - pytest tests/unit -v
+    - pytest tests/data_access -v
+    - pytest tests/usecases -v
   artifacts:
     paths:
       - .pytest_cache/
