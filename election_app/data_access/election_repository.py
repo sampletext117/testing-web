@@ -76,7 +76,7 @@ class PostgresElectionRepository(IElectionRepository):
             await conn.execute(
                 """
                 UPDATE elections.election
-                SET description = CONCAT(description, ' [STATUS:', $1, ']')
+                SET description = CONCAT(description, ' [STATUS:', $1::text, ']')
                 WHERE election_id = $2
                 """,
                 new_status, election_id

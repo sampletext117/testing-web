@@ -32,6 +32,9 @@ services:
     command: >
       bash -c "
       python scripts/setup_db.py &&
+      echo '================== Running unit tests ==============' &&
+      pytest tests/data_access &&
+      pytest tests/usecases &&
       echo '================== Running integration tests ==============' &&
       pytest tests/integration -v &&
       echo '================== Running E2E tests =================' &&
