@@ -11,11 +11,10 @@ variables:
   DB_USER: testuser
   DB_PASSWORD: testpass
   DB_NAME: testdb
-  # Переменная для Allure (если требуется)
+
   ALLURE_RESULTS_DIR: "allure-results"
   ALLURE_REPORT_DIR: "allure-report"
 
-# Джоб для unit-тестов (если они уже настроены)
 unit_tests:
   stage: unit
   image: python:3.10-slim
@@ -29,12 +28,11 @@ unit_tests:
 # Джоб для интеграционных тестов
 integration_tests:
   stage: integration
-  image: docker:20.10.16  # Используем docker образ (или свой кастомный образ)
+  image: docker:20.10.16
   services:
     - name: postgres:14
       alias: db
   variables:
-    # Порт, который видит контейнер тестов, может отличаться
     POSTGRES_DB: testdb
     POSTGRES_USER: testuser
     POSTGRES_PASSWORD: testpass
