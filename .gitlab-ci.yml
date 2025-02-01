@@ -11,17 +11,18 @@ variables:
   DB_USER: testuser
   DB_PASSWORD: testpass
   DB_NAME: testdb
-  # Переменная для Allure (если требуется)
+
   ALLURE_RESULTS_DIR: "allure-results"
   ALLURE_REPORT_DIR: "allure-report"
 
-# Джоб для unit-тестов (если они уже настроены)
 unit_tests:
   stage: unit
   image: python:3.10-slim
   script:
     - pip install --no-cache-dir -r requirements.txt
-    - pytest tests/unit -v
+    - pip install --no-cache-dir -e .
+    - pytest tests/data_access -v
+    - pytest tests/usecases -v
   artifacts:
     paths:
       - .pytest_cache/
@@ -29,20 +30,20 @@ unit_tests:
 # Джоб для интеграционных тестов
 integration_tests:
   stage: integration
-  image: docker:20.10.16  # Используем docker образ (или свой кастомный образ)
+  image: docker:20.10.16
   services:
     - name: postgres:14
       alias: db
   variables:
-    # Порт, который видит контейнер тестов, может отличаться
     POSTGRES_DB: testdb
     POSTGRES_USER: testuser
     POSTGRES_PASSWORD: testpass
   before_script:
     - apk add --no-cache python3 py3-pip bash git
     - pip install --no-cache-dir -r requirements.txt
+    - pip install --no-cache-dir -e .
     - pip install pytest pytest-asyncio
-    - python scripts/setup_db.py
+    - python3 scripts/setup_db.py
   script:
     - pytest tests/integration -v
   artifacts:
@@ -65,8 +66,9 @@ e2e_tests:
   before_script:
     - apk add --no-cache python3 py3-pip bash git
     - pip install --no-cache-dir -r requirements.txt
+    - pip install --no-cache-dir -e .
     - pip install pytest pytest-asyncio httpx
-    - python scripts/setup_db.py
+    - python3 scripts/setup_db.py
     # Запускаем приложение в фоне (например, через uvicorn)
     - nohup uvicorn election_app.api.main:app --host 0.0.0.0 --port 8000 &
     - sleep 5  # Ждем, пока приложение поднимется
