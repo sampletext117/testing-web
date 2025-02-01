@@ -43,7 +43,7 @@ integration_tests:
     - pip install --no-cache-dir -r requirements.txt
     - pip install --no-cache-dir -e .
     - pip install pytest pytest-asyncio
-    - python scripts/setup_db.py
+    - python3 scripts/setup_db.py
   script:
     - pytest tests/integration -v
   artifacts:
@@ -68,7 +68,7 @@ e2e_tests:
     - pip install --no-cache-dir -r requirements.txt
     - pip install --no-cache-dir -e .
     - pip install pytest pytest-asyncio httpx
-    - python scripts/setup_db.py
+    - python3 scripts/setup_db.py
     # Запускаем приложение в фоне (например, через uvicorn)
     - nohup uvicorn election_app.api.main:app --host 0.0.0.0 --port 8000 &
     - sleep 5  # Ждем, пока приложение поднимется
