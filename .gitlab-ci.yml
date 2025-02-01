@@ -89,7 +89,8 @@ allure_report:
     - e2e_tests
   script:
     # Устанавливаем Allure Commandline (здесь пример для Linux)
-    - curl -L -o allure-2.21.0.tgz https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz
+    - apt-get update && apt-get install -y wget
+    - wget https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz -O allure.tgz
     - tar -zxvf allure-2.21.0.tgz -C /opt/
     - export PATH=$PATH:/opt/allure-2.21.0/bin
     - allure generate $ALLURE_RESULTS_DIR --clean -o $ALLURE_REPORT_DIR
