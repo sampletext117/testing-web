@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:14
+    container_name: evoting_db
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: testdb
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "testuser", "-d", "testdb"]
+      interval: 1s
+      retries: 5
+
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile  # или просто Dockerfile, если вы его переименовали
+    container_name: evoting_test_runner
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: testuser
+      DB_PASSWORD: testpass
+      DB_NAME: testdb
+    command: >
+      bash -c "
+      python scripts/setup_db.py &&
+      echo '================== Running integration tests ==============' &&
+      pytest tests/integration -v &&
+      echo '================== Running E2E tests =================' &&
+      pytest tests/e2e -v
+      "

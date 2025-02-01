@@ -1,6 +1,7 @@
 from typing import Optional
 from datetime import date
 import asyncpg
+from asyncpg.exceptions import UniqueViolationError
 
 from election_app.domain.repositories.ipassport_repository import IPassportRepository
 from election_app.domain.entities.passport import Passport
@@ -8,7 +9,6 @@ from election_app.data_access.database import get_connection
 
 
 class PostgresPassportRepository(IPassportRepository):
-
     async def create_passport(
         self,
         passport_number: str,
@@ -18,9 +18,12 @@ class PostgresPassportRepository(IPassportRepository):
     ) -> int:
         """
         Создаёт запись в таблице passport и возвращает passport_id.
+        Если вставка не удалась (например, из-за дублирования passport_number),
+        выбрасывается UniqueViolationError.
         """
         conn = await get_connection()
         try:
+            # Попытка вставить запись; если возникает нарушение уникальности, asyncpg выбросит исключение.
             row = await conn.fetchrow(
                 """
                 INSERT INTO elections.passport (passport_number, issued_by, issue_date, country)
@@ -29,18 +32,14 @@ class PostgresPassportRepository(IPassportRepository):
                 """,
                 passport_number, issued_by, issue_date, country
             )
-            if row:
-                return row["passport_id"]
-            return 0
-        except Exception as e:
-            print(e)
+            # Если по какой-то причине row вернулся как None, выбрасываем ошибку.
+            if row is None:
+                raise UniqueViolationError("Duplicate passport number", None, None)
+            return row["passport_id"]
         finally:
             await conn.close()
 
     async def find_by_number(self, passport_number: str) -> Optional[Passport]:
-        """
-        Ищет паспорт по номеру.
-        """
         conn = await get_connection()
         try:
             row = await conn.fetchrow(
@@ -64,9 +63,6 @@ class PostgresPassportRepository(IPassportRepository):
             await conn.close()
 
     async def find_by_id(self, passport_id: int) -> Optional[Passport]:
-        """
-        Ищет паспорт по ID.
-        """
         conn = await get_connection()
         try:
             row = await conn.fetchrow(
