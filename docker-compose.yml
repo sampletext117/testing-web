@@ -29,14 +29,19 @@ services:
       DB_USER: testuser
       DB_PASSWORD: testpass
       DB_NAME: testdb
+    volumes:
+      - .:/app
     command: >
       bash -c "
       python scripts/setup_db.py &&
       echo '================== Running unit tests ==============' &&
-      pytest tests/data_access &&
-      pytest tests/usecases &&
+      pytest tests/data_access --alluredir allure-results &&
+      pytest tests/usecases --alluredir allure-results &&
       echo '================== Running integration tests ==============' &&
-      pytest tests/integration -v &&
+      pytest tests/integration -v --alluredir allure-results &&
+      echo '================== Running BDD E2E tests =================' &&
+      echo '=== Running Pytest-BDD E2E tests ===' &&
+      pytest-bdd -features-base-dir=tests/bdd/features -v &&
       echo '================== Running E2E tests =================' &&
       pytest tests/e2e -v
       "

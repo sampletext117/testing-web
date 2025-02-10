@@ -22,6 +22,7 @@ async def list_voters():
     try:
         voters_db = await voter_repo.list_all_voters()
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
 
     result = []

@@ -8,3 +8,11 @@ asyncpg~=0.27.0
 asyncio~=3.4.3
 python-dotenv~=1.0.0
 httpx~=0.18.2
+allure-pytest
+pytest-xdist
+pytest-random-order
+uvicorn
+PyJWT~=2.10.1
+behave
+requests
+pytest-bdd

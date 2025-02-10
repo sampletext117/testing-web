@@ -4,9 +4,11 @@ import time
 from datetime import date, timedelta
 import httpx
 from fastapi import status
+import logging
 
 # Импортируем приложение
 from election_app.api.main import app
+
 
 @pytest_asyncio.fixture
 async def async_client():
@@ -16,6 +18,7 @@ async def async_client():
     """
     async with httpx.AsyncClient(app=app, base_url="http://test") as ac:
         yield ac
+
 
 @pytest.mark.asyncio
 async def test_evoting_scenario(async_client: httpx.AsyncClient):
