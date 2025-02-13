@@ -13,6 +13,19 @@ CREATE SCHEMA IF NOT EXISTS elections;
 -- delete * from elections.candidate_account;
 -- delete * from elections.campaign_program;
 
+GRANT CONNECT ON DATABASE elections TO readonly_user;
+
+-- Дать права на использование схемы (например, public)
+GRANT USAGE ON SCHEMA elections TO readonly_user;
+
+-- Дать права на выборку (SELECT) на всех таблицах схемы public
+GRANT SELECT ON ALL TABLES IN SCHEMA elections TO readonly_user;
+
+-- Настроить автоматическую выдачу прав SELECT на вновь создаваемых таблицах
+ALTER DEFAULT PRIVILEGES IN SCHEMA elections GRANT SELECT ON TABLES TO readonly_user;
+
+-- Создаем роль для репликации с паролем
+CREATE ROLE replicator WITH REPLICATION LOGIN PASSWORD 'replicator_password';
 
 CREATE TABLE elections.passport (
     passport_id SERIAL PRIMARY KEY,            -- Уникальный идентификатор паспорта

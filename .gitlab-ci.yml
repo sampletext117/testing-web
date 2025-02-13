@@ -52,6 +52,17 @@ integration_tests:
     reports:
       junit: report.xml
 
+e2e_auth_tests:
+  stage: e2e-auth
+  image: python:3.10-slim
+  script:
+    - pip install --no-cache-dir -r requirements.txt
+    - pytest --bdd-features-base-dir=tests/bdd --maxfail=1 --disable-warnings -q
+  variables:
+    TECH_USER_EMAIL: $TECH_USER_EMAIL
+    TECH_USER_PASSWORD: $TECH_USER_PASSWORD
+
+
 # Джоб для E2E-тестов
 e2e_tests:
   stage: e2e

@@ -11,7 +11,9 @@ DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
+
 async def get_connection():
+    # print(DB_USER)
     conn = await asyncpg.connect(
         database=DB_NAME,
         user=DB_USER,
@@ -21,7 +23,7 @@ async def get_connection():
     )
     return conn
 
-#
+
 # async def main():
 #     try:
 #         res = await get_connection()
