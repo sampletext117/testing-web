@@ -44,7 +44,7 @@ integration_tests:
     - pip install --no-cache-dir -r requirements.txt
     - pip install --no-cache-dir -e .
     - pip install pytest pytest-asyncio
-#    - python3 scripts/setup_db.py
+    - python3 scripts/setup_db.py
   script:
     - pytest tests/integration -v
   artifacts:
@@ -59,7 +59,7 @@ e2e_auth_tests:
   before_script:
     - pip install --no-cache-dir -r requirements.txt
     - pip install --no-cache-dir -e .
-    - python3 scripts/setup_db.py
+#    - python3 scripts/setup_db.py
   script:
     - pytest tests/bdd
   variables:
