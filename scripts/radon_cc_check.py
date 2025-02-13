@@ -11,7 +11,7 @@ def main():
     # cmd = ["radon", "cc", "--total-average", "--fail", "C", "../election_app/"]
 
     # Если у вас Radon 5+, возможно:
-    cmd = ["radon", "cc", "--min C", "--max 10", "--fail-on C", "election_app/"]
+    cmd = ["radon", "cc", "--min C", "--max 10", "--fail-on C", "../election_app/"]
 
     try:
         result = subprocess.run(
