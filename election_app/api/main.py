@@ -23,7 +23,7 @@ def create_app() -> FastAPI:
     app.include_router(election_router, prefix="/v1", tags=["Elections"])
     app.include_router(vote_router, prefix="/v1", tags=["Votes"])
     app.include_router(auth_router, prefix="", tags=["Auth"])
-    app.mount("/admin", admin_panel_app)
+    # app.mount("/admin", admin_panel_app)
     return app
 
 app = create_app()
