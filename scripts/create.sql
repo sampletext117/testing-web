@@ -13,21 +13,21 @@ CREATE SCHEMA IF NOT EXISTS elections;
 -- delete * from elections.candidate_account;
 -- delete * from elections.campaign_program;
 
-GRANT CONNECT ON DATABASE elections TO readonly_user;
+--GRANT CONNECT ON DATABASE elections TO readonly_user;
+--
+---- Дать права на использование схемы (например, public)
+--GRANT USAGE ON SCHEMA elections TO readonly_user;
+--
+---- Дать права на выборку (SELECT) на всех таблицах схемы public
+--GRANT SELECT ON ALL TABLES IN SCHEMA elections TO readonly_user;
+--
+---- Настроить автоматическую выдачу прав SELECT на вновь создаваемых таблицах
+--ALTER DEFAULT PRIVILEGES IN SCHEMA elections GRANT SELECT ON TABLES TO readonly_user;
+--
+---- Создаем роль для репликации с паролем
+--CREATE ROLE replicator WITH REPLICATION LOGIN PASSWORD 'replicator_password';
 
--- Дать права на использование схемы (например, public)
-GRANT USAGE ON SCHEMA elections TO readonly_user;
-
--- Дать права на выборку (SELECT) на всех таблицах схемы public
-GRANT SELECT ON ALL TABLES IN SCHEMA elections TO readonly_user;
-
--- Настроить автоматическую выдачу прав SELECT на вновь создаваемых таблицах
-ALTER DEFAULT PRIVILEGES IN SCHEMA elections GRANT SELECT ON TABLES TO readonly_user;
-
--- Создаем роль для репликации с паролем
-CREATE ROLE replicator WITH REPLICATION LOGIN PASSWORD 'replicator_password';
-
-CREATE TABLE elections.passport (
+CREATE TABLE IF NOT EXISTS elections.passport (
     passport_id SERIAL PRIMARY KEY,            -- Уникальный идентификатор паспорта
     passport_number VARCHAR(50) UNIQUE NOT NULL, -- Номер паспорта
     issued_by VARCHAR(255),                    -- Орган, выдавший паспорт
@@ -36,7 +36,7 @@ CREATE TABLE elections.passport (
 );
 
 
-CREATE TABLE elections.candidate (
+CREATE TABLE IF NOT EXISTS elections.candidate (
     candidate_id SERIAL PRIMARY KEY,           -- Уникальный идентификатор кандидата
     full_name VARCHAR(255) NOT NULL,           -- Полное имя кандидата
     birth_date DATE NOT NULL CHECK (birth_date <= CURRENT_DATE), -- Дата рождения не может быть в будущем
@@ -46,13 +46,13 @@ CREATE TABLE elections.candidate (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Дата добавления кандидата
 );
 
-CREATE TABLE elections.campaign_program (
+CREATE TABLE IF NOT EXISTS elections.campaign_program (
     campaign_program_id SERIAL PRIMARY KEY,    -- Уникальный идентификатор программы
     candidate_id INT UNIQUE REFERENCES elections.candidate(candidate_id), -- Ссылка на кандидата
     description TEXT                           -- Описание предвыборной программы
 );
 
-CREATE TABLE elections.candidate_account (
+CREATE TABLE IF NOT EXISTS elections.candidate_account (
     account_id SERIAL PRIMARY KEY,             -- Уникальный идентификатор счета
     candidate_id INT UNIQUE REFERENCES elections.candidate(candidate_id), -- Ссылка на кандидата
     balance DECIMAL(15, 2) NOT NULL DEFAULT 0.0 CHECK (balance >= 0), -- Баланс счета не может быть отрицательным
@@ -67,7 +67,7 @@ ALTER TABLE elections.candidate
 ADD CONSTRAINT fk_account FOREIGN KEY (account_id)
 REFERENCES elections.candidate_account(account_id);
 
-CREATE TABLE elections.voter (
+CREATE TABLE IF NOT EXISTS elections.voter (
     voter_id SERIAL PRIMARY KEY,               -- Уникальный идентификатор избирателя
     full_name VARCHAR(255) NOT NULL,           -- Полное имя избирателя
     birth_date DATE NOT NULL CHECK (birth_date <= CURRENT_DATE), -- Дата рождения не может быть в будущем
@@ -76,7 +76,7 @@ CREATE TABLE elections.voter (
 );
 
 -- Таблица выборов с ограничениями на даты
-CREATE TABLE elections.election (
+CREATE TABLE IF NOT EXISTS elections.election (
     election_id SERIAL PRIMARY KEY,            -- Уникальный идентификатор выборов
     election_name VARCHAR(255) NOT NULL,       -- Название выборов
     start_date DATE,
@@ -85,7 +85,7 @@ CREATE TABLE elections.election (
 );
 
 
-CREATE TABLE elections.vote (
+CREATE TABLE IF NOT EXISTS elections.vote (
     vote_id SERIAL PRIMARY KEY,                -- Уникальный идентификатор голоса
     voter_id INT REFERENCES elections.voter(voter_id) ON DELETE CASCADE, -- Ссылка на избирателя
     candidate_id INT REFERENCES elections.candidate(candidate_id) ON DELETE CASCADE, -- Ссылка на кандидата
@@ -96,13 +96,13 @@ CREATE TABLE elections.vote (
 
 
 
-CREATE TABLE elections.candidate_election (
+CREATE TABLE IF NOT EXISTS elections.candidate_election (
     candidate_id INT REFERENCES elections.candidate(candidate_id) ON DELETE CASCADE,
     election_id INT REFERENCES elections.election(election_id) ON DELETE CASCADE,
     PRIMARY KEY (candidate_id, election_id)    -- Уникальная пара кандидат-выборы
 );
 
-CREATE TABLE elections.voter_election (
+CREATE TABLE IF NOT EXISTS elections.voter_election (
     voter_id INT REFERENCES elections.voter(voter_id) ON DELETE CASCADE,
     election_id INT REFERENCES elections.election(election_id) ON DELETE CASCADE,
     PRIMARY KEY (voter_id, election_id)        -- Уникальная пара избиратель-выборы

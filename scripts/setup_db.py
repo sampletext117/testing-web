@@ -24,9 +24,9 @@ async def main():
         conn = await asyncpg.connect(conn_str)
         print("[setup_db] Connected successfully. Executing del.sql ...")
 
-        await conn.execute(del_sql)
-
-        print("[setup_db] Done droping schema. Now creating tables")
+        # await conn.execute(del_sql)
+        #
+        # print("[setup_db] Done droping schema. Now creating tables")
 
         await conn.execute(create_sql)
 
