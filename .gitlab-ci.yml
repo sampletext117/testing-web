@@ -57,13 +57,10 @@ e2e_auth_tests:
   stage: e2e-auth
   image: python:3.10-slim
   before_script:
-    - apk add --no-cache python3 py3-pip bash git
     - pip install --no-cache-dir -r requirements.txt
     - pip install --no-cache-dir -e .
-    - pip install pytest pytest-asyncio httpx
     - python3 scripts/setup_db.py
   script:
-    - pip install --no-cache-dir -r requirements.txt
     - pytest tests/bdd
   variables:
     TECH_USER_EMAIL: $TECH_USER_EMAIL
