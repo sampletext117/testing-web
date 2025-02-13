@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+# testpaths = ["tests/unit", "tests/integration", "tests/e2e", "tests/bdd"]
+testpaths = ["tests/bdd"]
+python_files = ["test_*.py", "*.feature"]

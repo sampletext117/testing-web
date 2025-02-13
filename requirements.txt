@@ -1,13 +1,10 @@
-pytest~=8.3.4
 pytest_asyncio
 setuptools~=57.0.0
 Faker~=25.2.0
-fastapi~=0.115.8
 pydantic~=1.9.2
 asyncpg~=0.27.0
 asyncio~=3.4.3
 python-dotenv~=1.0.0
-httpx~=0.18.2
 allure-pytest
 pytest-xdist
 pytest-random-order
@@ -17,3 +14,8 @@ behave
 requests
 pytest-bdd
 starlette
+fastapi==0.95.1
+starlette==0.26.1
+httpx==0.24.1
+pytest==8.3.4
+pytest-bdd==8.1.0

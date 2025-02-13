@@ -58,7 +58,7 @@ e2e_auth_tests:
   image: python:3.10-slim
   script:
     - pip install --no-cache-dir -r requirements.txt
-    - pytest --bdd-features-base-dir=tests/bdd --maxfail=1 --disable-warnings -q
+    - pytest tests/bdd
   variables:
     TECH_USER_EMAIL: $TECH_USER_EMAIL
     TECH_USER_PASSWORD: $TECH_USER_PASSWORD

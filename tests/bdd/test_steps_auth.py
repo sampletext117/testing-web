@@ -3,6 +3,9 @@ import pytest
 from pytest_bdd import scenarios, given, when, then, parsers
 from fastapi.testclient import TestClient
 from election_app.api.main import app
+import inspect
+from fastapi.testclient import TestClient
+
 
 # Подключаем сценарии из файла authentication.feature
 scenarios("authentication.feature")
@@ -21,11 +24,13 @@ def context():
 TECH_USER_EMAIL = os.getenv("TECH_USER_EMAIL", "tech@example.com")
 TECH_USER_PASSWORD = os.getenv("TECH_USER_PASSWORD", "secret")
 
-# Шаги для логина
-@given(parsers.parse('Технический пользователь с email "{email}" и паролем "{password}"'))
+# Добавляем target_fixture="tech_user"
+@given(parsers.parse('Технический пользователь с email "{email}" и паролем "{password}"'),
+       target_fixture="tech_user")
 def technical_user(context, email, password):
     context["email"] = email
     context["password"] = password
+    return context
 
 @when("Пользователь отправляет запрос на логин с этими данными")
 def send_login_request(client, context):
@@ -74,12 +79,13 @@ def check_successful_change_password(context):
     response = context["change_password_response"]
     assert response.status_code in [200, 204], f"Ожидался статус 200 или 204, получен {response.status_code}"
 
-@then(parsers.parse('В ответе должна быть ошибка с сообщением "{message}" и статусом 400'))
-def check_failed_change_password(context, message):
+@then("В ответе должна быть ошибка смены пароля с сообщением 'Current password is incorrect' и статусом 400")
+def check_failed_change_password(context):
     response = context["change_password_response"]
     assert response.status_code == 400, f"Ожидался статус 400, получен {response.status_code}"
     data = response.json()
-    assert message in data.get("detail", ""), f"Ожидаемое сообщение не найдено. Получено: {data.get('detail')}"
+    expected = "Current password is incorrect"
+    assert expected in data.get("detail", ""), f"Ожидалось сообщение '{expected}', получено: {data.get('detail')}"
 
 # Шаги для двухфакторной аутентификации (2FA)
 @given(parsers.parse('Технический пользователь с email "{email}"'))
@@ -108,4 +114,5 @@ def check_failed_2fa(context, message):
     response = context["2fa_response"]
     assert response.status_code == 400, f"Ожидался статус 400, получен {response.status_code}"
     data = response.json()
-    assert message in data.get("detail", ""), f"Ожидаемое сообщение не найдено. Получено: {data.get('detail')}"
+    assert message in data.get("detail", ""), f"Ожидалось сообщение '{message}', получено: {data.get('detail')}"
+
