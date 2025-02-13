@@ -55,16 +55,23 @@ integration_tests:
 
 e2e_auth_tests:
   stage: e2e-auth
-  image: python:3.10-slim
-  before_script:
-    - pip install --no-cache-dir -r requirements.txt
-    - pip install --no-cache-dir -e .
-#    - python3 scripts/setup_db.py
-  script:
-    - pytest tests/bdd
+  image: docker:20.10.16
+  services:
+    - name: postgres:14
+      alias: db
   variables:
     TECH_USER_EMAIL: $TECH_USER_EMAIL
     TECH_USER_PASSWORD: $TECH_USER_PASSWORD
+    POSTGRES_DB: testdb
+    POSTGRES_USER: testuser
+    POSTGRES_PASSWORD: testpass
+
+  before_script:
+    - pip install --no-cache-dir -r requirements.txt
+    - pip install --no-cache-dir -e .
+    - python3 scripts/setup_db.py
+  script:
+    - pytest tests/bdd
 
 
 # Джоб для E2E-тестов

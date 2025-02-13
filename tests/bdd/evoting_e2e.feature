@@ -8,10 +8,10 @@ Feature: E2E scenario for eVoting with Pytest-BDD
     When this user logs in and obtains a JWT token
     Then a token should be returned and status code is 200
 
-    When the voter is registered with full_name "Voter One", birth_date "1990-01-01", passport_number "VOTER-PASS-123", issued_by "Voter Issuer", issue_date "2010-01-01", country "Россия"
+    When the voter is registered with full_name "Voter One", birth_date "1990-01-01", passport_number "VOTER-PASS-125", issued_by "Voter Issuer", issue_date "2010-01-01", country "Россия"
     Then the voter_id is returned with status 201
 
-    When the candidate is registered with full_name "Candidate One", birth_date "1975-05-05", passport_number "CAND-PASS-123", issued_by "Candidate Issuer", issue_date "2000-01-01", country "Россия", program_description "Test Program", initial_balance "1000.0"
+    When the candidate is registered with full_name "Candidate One", birth_date "1975-05-05", passport_number "CAND-PASS-125", issued_by "Candidate Issuer", issue_date "2000-01-01", country "Россия", program_description "Test Program", initial_balance "1000.0"
     Then the candidate_id is returned with status 201
 
     When an election is created with election_name "E2E Test Election", start_date "today", end_date "tomorrow", description "Demo election"
