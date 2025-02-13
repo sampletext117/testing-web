@@ -6,7 +6,7 @@ from election_app.api.v1.voter_endpoints import router as voter_router
 from election_app.api.v1.election_endpoints import router as election_router
 from election_app.api.v1.vote_endpoints import router as vote_router
 from election_app.api.v1.auth_endpoints import router as auth_router
-from election_app.api.v1.admin_panel import admin_panel_app
+# from election_app.api.v1.admin_panel import admin_panel_app
 
 
 def create_app() -> FastAPI:
