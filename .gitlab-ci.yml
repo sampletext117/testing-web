@@ -1,4 +1,5 @@
 stages:
+  - static-analysis
   - e2e-auth
   - unit
   - integration
@@ -102,6 +103,15 @@ e2e_tests:
       - allure-results/
     reports:
       junit: e2e-report.xml
+
+static_analysis:
+  stage: static-analysis
+  image: python:3.10-slim
+  script:
+    - pip install --no-cache-dir -r requirements-dev.txt
+    - python scripts/radon_cc_check.py
+    - python scripts/radon_hal_check.py
+    - python scripts/vulture_check.py
 
 # Джоб для генерации отчёта Allure
 allure_report:

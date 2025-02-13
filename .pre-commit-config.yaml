@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: radon-cc
+        name: Radon Cyclomatic Complexity
+        entry: python
+        language: system
+        pass_filenames: false
+        args: ["scripts/radon_cc_check.py"]
+
+      - id: radon-hal
+        name: Radon Halstead Complexity
+        entry: python
+        language: system
+        pass_filenames: false
+        args: ["scripts/radon_hal_check.py"]
+
+      - id: vulture-dead-code
+        name: Vulture Dead Code
+        entry: python
+        language: system
+        pass_filenames: false
+        args: ["scripts/vulture_check.py"]
