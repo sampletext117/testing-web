@@ -108,7 +108,7 @@ static_analysis:
   stage: static-analysis
   image: python:3.10-slim
   script:
-    - pip install --no-cache-dir -r requirements-dev.txt
+    - pip install --no-cache-dir -r requirements.txt
     - python scripts/radon_cc_check.py
     - python scripts/radon_hal_check.py
     - python scripts/vulture_check.py
