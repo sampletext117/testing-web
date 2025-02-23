@@ -59,13 +59,13 @@ CREATE TABLE IF NOT EXISTS elections.candidate_account (
     last_transaction_date TIMESTAMP            -- Дата последней транзакции
 );
 
-ALTER TABLE elections.candidate
-ADD CONSTRAINT fk_campaign_program FOREIGN KEY (campaign_program_id)
-REFERENCES elections.campaign_program(campaign_program_id);
-
-ALTER TABLE elections.candidate
-ADD CONSTRAINT fk_account FOREIGN KEY (account_id)
-REFERENCES elections.candidate_account(account_id);
+--ALTER TABLE elections.candidate
+--ADD CONSTRAINT IF NOT EXISTS fk_campaign_program FOREIGN KEY (campaign_program_id)
+--REFERENCES elections.campaign_program(campaign_program_id);
+--
+--ALTER TABLE elections.candidate
+--ADD CONSTRAINT IF NOT EXISTS fk_account FOREIGN KEY (account_id)
+--REFERENCES elections.candidate_account(account_id);
 
 CREATE TABLE IF NOT EXISTS elections.voter (
     voter_id SERIAL PRIMARY KEY,               -- Уникальный идентификатор избирателя

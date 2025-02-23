@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from starlette.responses import Response
 import election_app.tracing
 import election_app.logging_config
-from election_app.api.v1.admin_panel import admin_panel_app
+# from election_app.api.v1.admin_panel import admin_panel_app
 from election_app.api.v1.candidate_endpoints import router as candidate_router
 from election_app.api.v1.voter_endpoints import router as voter_router
 from election_app.api.v1.election_endpoints import router as election_router
@@ -23,7 +23,7 @@ def create_app() -> FastAPI:
     app.include_router(election_router, prefix="/v1", tags=["Elections"])
     app.include_router(vote_router, prefix="/v1", tags=["Votes"])
     app.include_router(auth_router, prefix="", tags=["Auth"])
-    app.mount("/admin", admin_panel_app)  # Монтируем админку
+    # app.mount("/admin", admin_panel_app)  # Монтируем админку
     return app
 
 app = create_app()

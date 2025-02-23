@@ -22,8 +22,7 @@ async def main():
     conn = None
     try:
         conn = await asyncpg.connect(conn_str)
-        print("[setup_db] Connected successfully. Executing del.sql ...")
-
+        print("[setup_db] Connected successfully. Executing create.sql ...")
 
         await conn.execute(create_sql)
 
