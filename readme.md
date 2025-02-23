@@ -26,13 +26,13 @@
 
 ## Use-case диаграмма
 
-![img_1.png](C:\Users\taskf\PycharmProjects\testing-web\img_1.png)
-![img_2.png](C:\Users\taskf\PycharmProjects\testing-web\img_2.png)
-![img_3.png](C:\Users\taskf\PycharmProjects\testing-web\img_3.png)
+![img_1.png](/static/img/img_1.png)
+![img_2.png](/static/img/img_2.png)
+![img_3.png](/static/img/img_3.png)
 
 ## ER-диаграмма сущностей
 
-![img.png](C:\Users\taskf\PycharmProjects\testing-web\img.png)
+![img.png](/static/img/img.png)
 
 ## Пользовательские сценарии
 
@@ -51,19 +51,19 @@
 
 ### Регистрация/авторизация
 
-![img_4.png](C:\Users\taskf\PycharmProjects\testing-web\img_4.png)
+![img_4.png](/static/img/img_4.png)
 
 ### Голосование
 
-![img_5.png](C:\Users\taskf\PycharmProjects\testing-web\img_5.png)
+![img_5.png](/static/img/img_5.png)
 
 ## Разбиение на компоненты
 
-![img_6.png](C:\Users\taskf\PycharmProjects\testing-web\img_6.png)
+![img_6.png](/static/img/img_6.png)
 
 ## Диаграмма моделей Data Access
 
-![img_7.png](C:\Users\taskf\PycharmProjects\testing-web\img_7.png)
+![img_7.png](/static/img/img_7.png)
 
 ## Макеты
 

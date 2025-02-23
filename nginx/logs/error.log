@@ -1,0 +1,448 @@
+2025/02/04 07:04:11 [error] 26928#25288: *1 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/04 07:10:04 [notice] 33612#24200: signal process started
+2025/02/04 07:14:52 [emerg] 30940#32236: duplicate location "/admin/" in C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/conf/nginx.conf:82
+2025/02/04 07:15:26 [emerg] 25996#37420: duplicate location "/admin/" in C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/conf/nginx.conf:82
+2025/02/04 07:15:43 [notice] 32672#32676: signal process started
+2025/02/04 07:15:49 [error] 26928#25288: *4 "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/admin/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/04 07:15:53 [error] 26928#25288: *4 "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/admin/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/04 07:17:04 [error] 26928#25288: *7 "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/admin/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/04 07:17:05 [error] 26928#25288: *7 "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/admin/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/04 07:17:52 [error] 26928#25288: *7 "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/admin/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/04 07:17:57 [error] 26928#25288: *10 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost"
+2025/02/04 07:18:09 [error] 26928#25288: *7 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/api/v1" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1 HTTP/1.1", host: "localhost"
+2025/02/04 07:18:38 [error] 26928#25288: *7 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/test" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /test HTTP/1.1", host: "localhost"
+2025/02/04 07:20:15 [error] 26928#25288: *13 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/test" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /test HTTP/1.1", host: "localhost"
+2025/02/04 07:20:16 [error] 26928#25288: *13 CreateFile() "C:\Users\taskf\OneDrive\Desktop\nginx-1.27.3/html/test" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /test HTTP/1.1", host: "localhost"
+2025/02/11 04:05:19 [notice] 16876#8744: signal process started
+2025/02/11 04:06:39 [notice] 3660#25132: signal process started
+2025/02/11 04:11:31 [notice] 10384#6100: signal process started
+2025/02/11 04:12:33 [notice] 25836#12356: signal process started
+2025/02/11 04:13:46 [notice] 4304#3364: signal process started
+2025/02/11 04:13:46 [error] 4304#3364: CreateFile() "C:\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2025/02/11 04:14:29 [notice] 16724#26804: signal process started
+2025/02/11 04:14:29 [error] 16724#26804: OpenEvent("Global\ngx_reload_6356") failed (5: Access is denied)
+2025/02/11 04:14:53 [notice] 17944#27420: signal process started
+2025/02/11 04:16:36 [notice] 6664#21936: signal process started
+2025/02/11 04:19:21 [notice] 844#18636: signal process started
+2025/02/11 04:20:14 [error] 25620#2368: *1 "C:\nginx/html/static/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 04:20:15 [error] 25620#2368: *1 CreateFile() "C:\nginx/html/static/favicon.ico" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 04:20:18 [error] 25620#2368: *1 "C:\nginx/html/static/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 04:20:20 [error] 25620#2368: *1 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:20:21 [error] 25620#2368: *1 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:20:55 [error] 25620#2368: *1 CreateFile() "C:\nginx/html/README.md" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /documentation HTTP/1.1", host: "localhost"
+2025/02/11 04:21:51 [notice] 26940#18376: signal process started
+2025/02/11 04:21:52 [error] 5532#27496: *4 CreateFile() "C:\nginx/html/README.md" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /documentation HTTP/1.1", host: "localhost"
+2025/02/11 04:21:53 [error] 5532#27496: *4 CreateFile() "C:\nginx/html/README.md" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /documentation HTTP/1.1", host: "localhost"
+2025/02/11 04:21:56 [error] 5532#27496: *4 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 04:22:32 [error] 5532#27496: *4 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", upstream: "http://127.0.0.1:8000/docs", host: "localhost"
+2025/02/11 04:31:27 [error] 5532#27496: *8 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8081/", host: "localhost"
+2025/02/11 04:31:53 [notice] 25764#16036: signal process started
+2025/02/11 04:31:57 [error] 5532#27496: *9 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8081/", host: "localhost"
+2025/02/11 04:33:25 [notice] 23540#9372: signal process started
+2025/02/11 04:33:50 [notice] 11040#8420: signal process started
+2025/02/11 04:33:55 [error] 25872#16280: *13 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 04:33:57 [error] 25872#16280: *13 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:33:58 [error] 25872#16280: *13 CreateFile() "C:\nginx/html/static/static/img/sample.jpg" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:45:19 [notice] 20748#24780: signal process started
+2025/02/11 04:45:23 [error] 6668#21672: *16 directory index of "C:/nginx/www/evoting/admin/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/11 04:45:53 [notice] 14224#10348: signal process started
+2025/02/11 04:45:56 [error] 6668#21672: *17 directory index of "C:/nginx/www/evoting/admin/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/11 04:45:59 [error] 6668#21672: *18 directory index of "C:/nginx/www/evoting/admin/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", host: "localhost"
+2025/02/11 04:46:12 [error] 16288#3188: *19 "C:/nginx/www/evoting/static/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /static/ HTTP/1.1", host: "localhost"
+2025/02/11 04:46:36 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/static/"
+2025/02/11 04:46:48 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:46:49 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 04:46:54 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 04:47:27 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/logs" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /logs HTTP/1.1", host: "localhost"
+2025/02/11 04:47:34 [error] 16288#3188: *19 CreateFile() "C:/nginx/www/evoting/logs/error.log" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /logs/error.log HTTP/1.1", host: "localhost"
+2025/02/11 04:49:15 [error] 16288#3188: *22 CreateFile() "C:/nginx/www/evoting/v1/elections" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /v1/elections HTTP/1.1", host: "localhost"
+2025/02/11 04:49:37 [notice] 21936#12144: signal process started
+2025/02/11 06:09:25 [error] 10908#6820: *43 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1"
+2025/02/11 06:09:27 [error] 10908#6820: *44 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "127.0.0.1"
+2025/02/11 06:09:28 [error] 10908#6820: *44 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1", referrer: "http://127.0.0.1/"
+2025/02/11 06:09:39 [error] 10908#6820: *44 CreateFile() "C:/nginx/www/evoting/8001/v1/elections" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /8001/v1/elections HTTP/1.1", host: "127.0.0.1"
+2025/02/11 06:24:36 [emerg] 4860#27052: "upstream" directive is not allowed here in C:\nginx/conf/nginx.conf:24
+2025/02/11 06:25:49 [notice] 17616#24676: signal process started
+2025/02/11 06:38:06 [emerg] 28344#14520: invalid host in upstream "127.0.0.1:8000/v1" in C:\nginx/conf/nginx.conf:17
+2025/02/11 06:38:31 [notice] 1044#16572: signal process started
+2025/02/11 10:28:27 [error] 24208#20616: *8049 CreateFile() "C:/nginx/www/evoting/mirror1/api/v1/elections" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /mirror1/api/v1/elections HTTP/1.1", host: "localhost"
+2025/02/11 10:28:53 [warn] 21224#29540: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:50
+2025/02/11 10:29:01 [warn] 7768#28096: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:50
+2025/02/11 10:29:01 [notice] 7768#28096: signal process started
+2025/02/11 10:29:01 [warn] 2112#27156: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:50
+2025/02/11 11:23:57 [warn] 28392#22992: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:52
+2025/02/11 11:24:05 [warn] 28680#26900: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:52
+2025/02/11 11:24:05 [notice] 28680#26900: signal process started
+2025/02/11 11:24:06 [warn] 9456#29184: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:52
+2025/02/11 11:25:56 [warn] 28452#19132: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:25:56 [emerg] 28452#19132: CreateDirectory() "C:/tmp/nginx_cache" failed (3: The system cannot find the path specified)
+2025/02/11 11:26:03 [warn] 7372#28460: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:26:03 [emerg] 7372#28460: CreateDirectory() "C:/tmp/nginx_cache" failed (3: The system cannot find the path specified)
+2025/02/11 11:26:41 [warn] 7764#6536: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:26:41 [emerg] 7764#6536: CreateDirectory() "C:/nginx/tmp/nginx_cache" failed (3: The system cannot find the path specified)
+2025/02/11 11:26:59 [warn] 26816#6988: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:26:59 [emerg] 26816#6988: CreateDirectory() "C:\nginx/tmp/nginx_cache" failed (3: The system cannot find the path specified)
+2025/02/11 11:27:22 [warn] 29192#18508: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:27:27 [warn] 9616#22040: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:27:27 [notice] 9616#22040: signal process started
+2025/02/11 11:27:27 [warn] 8824#16436: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:54
+2025/02/11 11:27:55 [warn] 28648#4548: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:63
+2025/02/11 11:27:59 [warn] 27060#3180: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:63
+2025/02/11 11:27:59 [notice] 27060#3180: signal process started
+2025/02/11 11:27:59 [warn] 26900#28680: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:63
+2025/02/11 11:37:22 [warn] 29368#10104: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:37:22 [warn] 29368#10104: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:37:22 [emerg] 29368#10104: unexpected "," in C:\nginx/conf/nginx.conf:95
+2025/02/11 11:37:45 [warn] 18380#21244: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:37:45 [warn] 18380#21244: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:37:45 [emerg] 18380#21244: unknown directive "always" in C:\nginx/conf/nginx.conf:95
+2025/02/11 11:37:58 [warn] 1488#11420: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:37:58 [warn] 1488#11420: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:38:57 [warn] 27132#18392: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:38:57 [warn] 27132#18392: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:38:57 [notice] 27132#18392: signal process started
+2025/02/11 11:38:57 [warn] 29508#26028: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:38:57 [warn] 29508#26028: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:40:17 [warn] 21644#9180: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:40:17 [warn] 21644#9180: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:40:17 [notice] 21644#9180: signal process started
+2025/02/11 11:40:17 [warn] 10316#19896: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 11:40:17 [warn] 10316#19896: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 11:59:52 [error] 10316#28044: *8067 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: yourdomain.com, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 11:59:53 [error] 10316#28044: *8067 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: yourdomain.com, request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/11 11:59:58 [error] 10316#28044: *8067 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: yourdomain.com, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:40:37 [warn] 11144#18752: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:40:37 [warn] 11144#18752: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:40:37 [notice] 11144#18752: signal process started
+2025/02/11 12:40:37 [warn] 27188#23012: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:40:37 [warn] 27188#23012: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:41:08 [warn] 26052#22624: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:41:08 [warn] 26052#22624: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:41:11 [warn] 8744#22796: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:41:11 [warn] 8744#22796: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:41:11 [notice] 8744#22796: signal process started
+2025/02/11 12:41:11 [warn] 27756#25856: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:41:11 [warn] 27756#25856: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:41:35 [error] 27756#20336: *8076 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:43:38 [warn] 22404#28600: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:43:38 [warn] 22404#28600: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:43:38 [notice] 22404#28600: signal process started
+2025/02/11 12:43:38 [warn] 1968#17164: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:43:38 [warn] 1968#17164: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:43:40 [error] 1968#27544: *8079 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:44:17 [error] 1968#27544: *8079 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:44:30 [error] 1968#27544: *8087 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:44:30 [error] 1968#27544: *8087 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/11 12:44:31 [error] 1968#27544: *8087 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/2.0", host: "localhost"
+2025/02/11 12:45:06 [warn] 19732#28688: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:45:06 [notice] 19732#28688: signal process started
+2025/02/11 12:45:06 [warn] 26972#26088: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:45:14 [error] 26972#28692: *8089 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:45:14 [error] 26972#28692: *8089 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:45:22 [error] 26972#28692: *8091 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:45:23 [error] 26972#28692: *8091 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 12:48:00 [error] 26972#28692: *8094 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:48:01 [error] 26972#28692: *8094 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:48:02 [error] 26972#28692: *8094 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost"
+2025/02/11 12:49:16 [warn] 6288#29324: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:49:16 [notice] 6288#29324: signal process started
+2025/02/11 12:49:16 [warn] 26492#23444: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:49:19 [error] 26492#5244: *8097 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 12:49:43 [warn] 28540#5984: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:49:43 [warn] 28540#5984: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:49:43 [notice] 28540#5984: signal process started
+2025/02/11 12:49:43 [warn] 20460#29240: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 12:49:43 [warn] 20460#29240: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 12:49:45 [error] 26492#5244: *8099 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 12:49:53 [error] 20460#25008: *8102 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/11 12:51:22 [crit] 20460#25008: *8104 SSL_do_handshake() failed (SSL: error:0A0004E7:SSL routines::reason(1255):SSL alert number 255) while SSL handshaking, client: 127.0.0.1, server: 0.0.0.0:443
+2025/02/11 12:51:22 [crit] 20460#25008: *8105 SSL_do_handshake() failed (SSL: error:0A0004E7:SSL routines::reason(1255):SSL alert number 255) while SSL handshaking, client: 127.0.0.1, server: 0.0.0.0:443
+2025/02/11 12:51:22 [error] 20460#25008: *8106 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/11 12:52:39 [crit] 20460#25008: *8108 SSL_do_handshake() failed (SSL: error:0A0004E7:SSL routines::reason(1255):SSL alert number 255) while SSL handshaking, client: 127.0.0.1, server: 0.0.0.0:443
+2025/02/11 12:52:39 [crit] 20460#25008: *8109 SSL_do_handshake() failed (SSL: error:0A0004E7:SSL routines::reason(1255):SSL alert number 255) while SSL handshaking, client: 127.0.0.1, server: 0.0.0.0:443
+2025/02/11 12:52:39 [error] 20460#25008: *8110 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/2.0", host: "localhost", referrer: "https://localhost/static/"
+2025/02/11 12:52:47 [error] 20460#25008: *8110 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/2.0", host: "localhost", referrer: "https://localhost/static/index.html"
+2025/02/11 13:04:25 [warn] 21108#20792: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 13:04:25 [warn] 21108#20792: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:04:25 [emerg] 21108#20792: unexpected "}" in C:\nginx/conf/nginx.conf:91
+2025/02/11 13:04:38 [warn] 25040#17580: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 13:04:38 [warn] 25040#17580: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:04:38 [notice] 25040#17580: signal process started
+2025/02/11 13:04:38 [warn] 10276#27304: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 13:04:38 [warn] 10276#27304: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:05:12 [error] 10276#22120: *8118 CreateFile() "C:/nginx/www/evoting/legacy.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /legacy HTTP/2.0", host: "localhost"
+2025/02/11 13:08:12 [warn] 28320#21552: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 13:08:12 [warn] 28320#21552: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:08:12 [notice] 28320#21552: signal process started
+2025/02/11 13:08:12 [warn] 26660#16240: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:37
+2025/02/11 13:08:12 [warn] 26660#16240: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:09:34 [warn] 26872#29580: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:09:34 [notice] 26872#29580: signal process started
+2025/02/11 13:09:35 [warn] 7804#20356: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:69
+2025/02/11 13:09:42 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:10:09 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:10:13 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 13:10:16 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 13:10:17 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/11 13:10:20 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/statu" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /statu HTTP/1.1", host: "localhost"
+2025/02/11 13:10:36 [error] 7804#27824: *8120 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:11:45 [warn] 29444#12040: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:11:45 [notice] 29444#12040: signal process started
+2025/02/11 13:11:45 [warn] 20596#26488: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:11:47 [error] 20596#24016: *8124 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:11:49 [error] 20596#24016: *8124 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:11:53 [error] 20596#24016: *8124 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:11:56 [error] 20596#24016: *8124 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:11:56 [error] 20596#24016: *8124 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:12:23 [warn] 12084#7724: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:12:23 [notice] 12084#7724: signal process started
+2025/02/11 13:12:23 [warn] 16828#20588: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:12:24 [error] 20596#24016: *8125 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:12:27 [error] 20596#24016: *8126 CreateFile() "C:/nginx/www/evoting/openapi.yml" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /api/v1/docs HTTP/1.1", host: "localhost"
+2025/02/11 13:12:47 [warn] 28992#4088: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:12:47 [notice] 28992#4088: signal process started
+2025/02/11 13:12:47 [warn] 23604#27748: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:39:04 [warn] 27968#3660: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:39:04 [notice] 27968#3660: signal process started
+2025/02/11 13:39:04 [warn] 29540#13008: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:39:12 [error] 29540#16156: *8132 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 13:40:34 [warn] 25168#23444: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:40:34 [notice] 25168#23444: signal process started
+2025/02/11 13:40:34 [warn] 8648#17736: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:40:56 [warn] 29568#17596: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:40:56 [notice] 29568#17596: signal process started
+2025/02/11 13:40:56 [warn] 21120#20940: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:41:31 [error] 8648#27156: *8140 CreateFile() "C:/nginx/www/evoting/legacy.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /legacy HTTP/1.1", host: "localhost"
+2025/02/11 13:41:55 [warn] 28048#5832: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:41:55 [notice] 28048#5832: signal process started
+2025/02/11 13:41:55 [warn] 23076#9108: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 13:41:56 [error] 21120#26512: *8142 CreateFile() "C:/nginx/www/evoting/legacy.html" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /legacy HTTP/1.1", host: "localhost"
+2025/02/11 13:42:46 [error] 23076#26088: *8143 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/static/"
+2025/02/11 14:43:17 [error] 23076#26088: *8145 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 14:44:20 [error] 23076#26088: *8148 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1"
+2025/02/11 14:50:04 [error] 23076#26088: *8160 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 14:50:28 [error] 23076#26088: *8162 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/11 14:52:56 [crit] 23076#26088: *8167 CreateFile() "C:/nginx/www/evoting/admin/".h($Ni)."" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h($Ni).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:57 [error] 23076#26088: *8168 CreateFile() "C:/nginx/www/evoting/admin/',h(preg_replace(" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /admin/',h(preg_replace( HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:57 [error] 23076#26088: *8168 CreateFile() "C:/nginx/www/evoting/admin/',h($Ob),'" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /admin/',h($Ob),' HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:57 [crit] 23076#26088: *8169 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:57 [crit] 23076#26088: *8168 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=up.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:58 [crit] 23076#26088: *8172 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=down.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:52:58 [crit] 23076#26088: *8171 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=cross.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:53:00 [crit] 23076#26088: *8170 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 14:53:01 [crit] 23076#26088: *8173 GetFileAttributesEx() "C:/nginx/www/evoting/admin/".h(preg_replace("~" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=cross.gif&version=4.8.1%22).%22 HTTP/1.1", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:16:17 [error] 23076#26088: *8260 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/documentation"
+2025/02/11 16:30:39 [warn] 28428#27796: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 16:30:39 [notice] 28428#27796: signal process started
+2025/02/11 16:30:39 [warn] 23176#8952: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/11 16:30:51 [error] 23176#23768: *8267 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/',h($Ob),' HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/',h($Ob),'", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:51 [error] 23176#23768: *8266 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/',h(preg_replace( HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/',h(preg_replace(", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:51 [error] 23176#23768: *8272 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=up.gif&version=4.8.1%22).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h(preg_replace(%22~/?.*~%22,%22%22,ME).%22?file=up.gif&version=4.8.1%22).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:51 [error] 23176#23768: *8270 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h($Ni).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h($Ni).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:51 [error] 23176#23768: *8271 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h(preg_replace(%22~/?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:51 [error] 23176#23768: *8276 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=down.gif&version=4.8.1%22).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h(preg_replace(%22~/?.*~%22,%22%22,ME).%22?file=down.gif&version=4.8.1%22).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:53 [error] 23176#23768: *8266 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=cross.gif&version=4.8.1%22).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h(preg_replace(%22~/?.*~%22,%22%22,ME).%22?file=cross.gif&version=4.8.1%22).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:30:53 [error] 23176#23768: *8276 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/%22.h(preg_replace(%22~//?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22 HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/%22.h(preg_replace(%22~/?.*~%22,%22%22,ME).%22?file=plus.gif&version=4.8.1%22).%22", host: "localhost", referrer: "http://localhost/admin/"
+2025/02/11 16:31:14 [error] 23176#23768: *8280 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "localhost"
+2025/02/11 16:31:17 [error] 23176#23768: *8280 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /admin/ HTTP/1.1", upstream: "http://127.0.0.1:8000/admin/", host: "localhost"
+2025/02/18 08:09:52 [warn] 52172#53168: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:09:58 [warn] 22816#47040: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:09:58 [notice] 22816#47040: signal process started
+2025/02/18 08:09:58 [error] 22816#47040: OpenEvent("Global\ngx_reload_6356") failed (2: The system cannot find the file specified)
+2025/02/18 08:10:57 [warn] 51896#5952: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:10:57 [notice] 51896#5952: signal process started
+2025/02/18 08:10:57 [error] 51896#5952: OpenEvent("Global\ngx_reload_6356") failed (2: The system cannot find the file specified)
+2025/02/18 08:11:00 [warn] 48908#48500: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:11:00 [warn] 52656#48112: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:11:27 [warn] 6492#42304: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:11:27 [notice] 6492#42304: signal process started
+2025/02/18 08:11:27 [warn] 43328#32756: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:11:45 [error] 43328#52548: *1 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1"
+2025/02/18 08:11:47 [error] 43328#52548: *2 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 08:11:48 [error] 43328#52548: *2 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 08:12:08 [error] 43328#52548: *5 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/documentation"
+2025/02/18 08:18:28 [error] 43328#52548: *15 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 08:18:53 [error] 43328#52548: *15 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 08:19:16 [warn] 50652#54888: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:19:16 [notice] 50652#54888: signal process started
+2025/02/18 08:19:16 [warn] 54988#54984: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:73
+2025/02/18 08:33:19 [emerg] 54344#50624: "proxy_pass" cannot have URI part in location given by regular expression, or inside named location, or inside "if" statement, or inside "limit_except" block in C:\nginx/conf/nginx.conf:68
+2025/02/18 08:34:37 [warn] 9988#9980: duplicate MIME type "text/html" in C:\nginx/conf/nginx.conf:95
+2025/02/18 08:34:37 [emerg] 9988#9980: unexpected "/" in C:\nginx/conf/nginx.conf:104
+2025/02/18 08:42:03 [notice] 21880#51804: signal process started
+2025/02/18 08:43:03 [error] 9980#46668: *21 CreateFile() "C:/nginx/www/evoting/docs" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /docs HTTP/1.1", host: "localhost"
+2025/02/18 08:43:29 [error] 9980#46668: *21 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:44:05 [error] 9980#46668: *21 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:50:21 [error] 9980#46668: *28 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:53:57 [error] 9980#46668: *32 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:54:26 [error] 9980#46668: *32 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/v1/openapi.json HTTP/1.1", upstream: "http://127.0.0.1:8001/v1/", host: "localhost"
+2025/02/18 08:54:28 [error] 9980#46668: *32 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/v1/openapi.json HTTP/1.1", upstream: "http://127.0.0.1:8002/v1/", host: "localhost"
+2025/02/18 08:55:46 [error] 9980#46668: *41 CreateFile() "C:/nginx/www/evoting/v1/openapi.json" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /v1/openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:56:24 [notice] 50432#21924: signal process started
+2025/02/18 08:56:28 [error] 9980#46668: *44 CreateFile() "C:/nginx/www/evoting/v1/openapi.json" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /v1/openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:56:48 [notice] 22816#49324: signal process started
+2025/02/18 08:57:15 [notice] 40956#20552: signal process started
+2025/02/18 08:57:18 [error] 15380#52960: *54 CreateFile() "C:/nginx/www/evoting/v1/openapi.json" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /v1/openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 08:58:27 [error] 15380#52960: *57 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:00:57 [error] 15380#52960: *63 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/v1/openapi.json HTTP/1.1", upstream: "http://127.0.0.1:8001/v1/", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:00:59 [error] 15380#52960: *63 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /api/v1/openapi.json HTTP/1.1", upstream: "http://127.0.0.1:8002/v1/", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:01:57 [error] 15380#52960: *63 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:02:36 [error] 15380#52960: *63 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 09:03:52 [error] 15380#52960: *72 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 09:04:27 [error] 15380#52960: *72 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 09:05:04 [notice] 52724#16612: signal process started
+2025/02/18 09:05:09 [error] 38808#51072: *75 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2025/02/18 09:05:16 [error] 38808#51072: *75 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:06:17 [error] 38808#51072: *75 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:06:22 [error] 38808#51072: *75 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:07:27 [notice] 18360#51756: signal process started
+2025/02/18 09:07:28 [error] 9064#54012: *79 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:08:01 [error] 9064#54012: *79 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:08:03 [error] 9064#54012: *79 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:08:04 [error] 9064#54012: *79 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:08:15 [notice] 54964#53996: signal process started
+2025/02/18 09:08:16 [error] 9064#54012: *81 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:08:17 [error] 54320#25504: *82 CreateFile() "C:/nginx/www/evoting/static/img/sample.jpg" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/img/sample.jpg HTTP/1.1", host: "localhost", referrer: "http://localhost/test"
+2025/02/18 09:47:54 [error] 54320#25504: *85 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:49:44 [notice] 53880#50652: signal process started
+2025/02/18 09:49:48 [error] 54320#25504: *92 CreateFile() "C:/nginx/www/evoting/openapi.json" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /openapi.json HTTP/1.1", host: "localhost", referrer: "http://localhost/api/v1/docs"
+2025/02/18 09:50:07 [notice] 52040#17456: signal process started
+2025/02/18 10:02:28 [warn] 53400#6476: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:02:28 [notice] 53400#6476: signal process started
+2025/02/18 10:02:28 [warn] 54352#54920: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:02:52 [error] 54352#52560: *100 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 10:04:01 [error] 54352#52560: *100 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /api/v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8001/v1/", host: "localhost"
+2025/02/18 10:04:03 [error] 54352#52560: *100 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /api/v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8002/v1/", host: "localhost"
+2025/02/18 10:09:43 [warn] 54488#53728: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:09:43 [notice] 54488#53728: signal process started
+2025/02/18 10:09:43 [warn] 52836#22392: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:09:54 [error] 52836#54264: *113 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /api/v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8001/v1/elections", host: "localhost"
+2025/02/18 10:09:56 [error] 52836#54264: *113 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /api/v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8002/v1/elections", host: "localhost"
+2025/02/18 10:13:06 [warn] 54360#20488: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:13:06 [emerg] 54360#20488: unexpected "," in C:\nginx/conf/nginx.conf:101
+2025/02/18 10:13:59 [warn] 9752#21452: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:13:59 [notice] 9752#21452: signal process started
+2025/02/18 10:13:59 [warn] 11876#52628: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:15:04 [warn] 54308#53576: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:15:04 [notice] 54308#53576: signal process started
+2025/02/18 10:15:04 [warn] 8832#52512: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:16:05 [warn] 18620#48660: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:16:05 [notice] 18620#48660: signal process started
+2025/02/18 10:16:05 [warn] 9876#51000: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:16:07 [error] 9876#52096: *128 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 10:16:16 [error] 9876#52096: *128 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 10:16:17 [error] 9876#52096: *128 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 10:16:40 [warn] 51880#22348: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:16:40 [notice] 51880#22348: signal process started
+2025/02/18 10:16:40 [warn] 10456#9980: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:17:12 [warn] 47016#52560: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:17:12 [notice] 47016#52560: signal process started
+2025/02/18 10:17:12 [warn] 49752#1480: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:17:18 [error] 49752#54976: *134 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 10:17:39 [warn] 55008#920: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:17:39 [notice] 55008#920: signal process started
+2025/02/18 10:17:39 [warn] 12404#52096: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 10:18:41 [error] 12404#51520: *142 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 10:26:31 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_1.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_1.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:31 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_2.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_2.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_3.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_3.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_4.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_4.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_5.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_5.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_6.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_6.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:26:32 [error] 12404#51520: *151 CreateFile() "C:/nginx/www/evoting/static/static/img/img_7.png" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /static/static/img/img_7.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 10:28:46 [error] 12404#51520: *154 CreateFile() "C:/nginx/www/evoting/static/img/img.png" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /static/img/img.png HTTP/2.0", host: "localhost", referrer: "https://localhost/documentation"
+2025/02/18 12:34:58 [error] 12404#51520: *164 CreateFile() "C:/nginx/www/evoting/v1/candidates" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: , request: "GET /v1/candidates HTTP/2.0", host: "localhost", referrer: "https://localhost/api/v1/docs"
+2025/02/18 12:36:29 [warn] 56120#56472: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 12:36:29 [notice] 56120#56472: signal process started
+2025/02/18 12:36:29 [warn] 21172#51516: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 12:36:40 [warn] 44316#56368: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 12:36:40 [notice] 44316#56368: signal process started
+2025/02/18 12:36:40 [warn] 58976#59280: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 12:40:57 [error] 58976#57028: *175 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8001/v1/elections", host: "localhost", referrer: "https://localhost/api/v1/docs"
+2025/02/18 12:40:59 [error] 58976#57028: *175 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /v1/elections HTTP/2.0", upstream: "http://127.0.0.1:8002/v1/elections", host: "localhost", referrer: "https://localhost/api/v1/docs"
+2025/02/18 13:12:39 [warn] 58452#56560: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 13:12:39 [notice] 58452#56560: signal process started
+2025/02/18 13:12:39 [warn] 26108#53896: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 13:12:46 [error] 26108#54008: *233 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /admin/ HTTP/2.0", upstream: "http://127.0.0.1:80/admin/", host: "localhost"
+2025/02/18 13:43:33 [warn] 26852#14548: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 13:43:33 [emerg] 26852#14548: duplicate location "/api/v1/" in C:\nginx/conf/nginx.conf:85
+2025/02/18 13:44:31 [warn] 28040#24736: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 13:44:31 [notice] 28040#24736: signal process started
+2025/02/18 13:44:31 [warn] 17668#4852: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:47
+2025/02/18 14:11:15 [error] 17668#9816: *309 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /v1/candidates HTTP/2.0", upstream: "http://127.0.0.1:8001/v1/candidates", host: "localhost", referrer: "https://localhost/api/v1/docs"
+2025/02/18 14:11:17 [error] 17668#9816: *309 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /v1/candidates HTTP/2.0", upstream: "http://127.0.0.1:8002/v1/candidates", host: "localhost", referrer: "https://localhost/api/v1/docs"
+2025/02/18 14:26:45 [warn] 58028#58208: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:27:53 [warn] 21516#35912: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:27:53 [notice] 21516#35912: signal process started
+2025/02/18 14:27:53 [warn] 51020#49788: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:27:57 [error] 51020#46488: *341 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:28:03 [error] 51020#46488: *341 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:28:03 [error] 51020#46488: *341 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 14:29:21 [warn] 58376#20716: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:29:21 [notice] 58376#20716: signal process started
+2025/02/18 14:29:21 [warn] 46192#24412: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:29:44 [warn] 36312#36376: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:29:44 [notice] 36312#36376: signal process started
+2025/02/18 14:29:44 [warn] 52020#28100: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:30:41 [warn] 47744#28708: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:30:41 [notice] 47744#28708: signal process started
+2025/02/18 14:30:41 [warn] 51492#30072: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:31:06 [error] 51492#11164: *350 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 14:31:37 [warn] 32736#31596: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:31:37 [notice] 32736#31596: signal process started
+2025/02/18 14:31:38 [warn] 17768#25932: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:50
+2025/02/18 14:31:40 [error] 17768#31512: *353 directory index of "C:/nginx/www/evoting/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:36:44 [warn] 37708#50688: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:36:44 [warn] 37708#50688: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:38:04 [warn] 42860#42844: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:38:04 [warn] 42860#42844: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:38:04 [notice] 42860#42844: signal process started
+2025/02/18 14:38:04 [warn] 35052#45976: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:38:04 [warn] 35052#45976: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:40:19 [warn] 59664#18544: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:40:19 [warn] 59664#18544: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:40:19 [notice] 59664#18544: signal process started
+2025/02/18 14:40:19 [warn] 44544#22952: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:40:19 [warn] 44544#22952: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:41:41 [error] 44544#60940: *359 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 14:45:19 [warn] 47408#31432: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:45:19 [warn] 47408#31432: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:45:19 [notice] 47408#31432: signal process started
+2025/02/18 14:45:19 [warn] 30044#29200: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:45:19 [warn] 30044#29200: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:45:22 [alert] 30044#8384: *364 "C:/nginx/www/evoting/static/index.htmlindex.html" is not a directory, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:45:38 [warn] 27012#50428: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:45:38 [warn] 27012#50428: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:45:38 [notice] 27012#50428: signal process started
+2025/02/18 14:45:38 [warn] 16120#34456: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:45:38 [warn] 16120#34456: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:45:41 [error] 16120#31568: *367 "C:/nginx/www/evoting/static/indexindex.html" is not found (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:45:43 [error] 16120#31568: *367 "C:/nginx/www/evoting/static/indexindex.html" is not found (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:46:36 [warn] 4388#40228: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:46:36 [warn] 4388#40228: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:46:36 [notice] 4388#40228: signal process started
+2025/02/18 14:46:36 [warn] 20976#44308: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:46:36 [warn] 20976#44308: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:47:13 [warn] 58528#17620: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:47:13 [warn] 58528#17620: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:47:13 [notice] 58528#17620: signal process started
+2025/02/18 14:47:13 [warn] 38576#38140: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:47:13 [warn] 38576#38140: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:47:16 [alert] 38576#29516: *373 "C:/nginx/www/evoting/static/index.htmlindex.html" is not a directory, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:49:28 [alert] 38576#29516: *376 "C:/nginx/www/evoting/static/index.htmlindex.html" is not a directory, client: 127.0.0.1, server: , request: "GET / HTTP/2.0", host: "localhost"
+2025/02/18 14:50:02 [warn] 42348#44232: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:50:02 [warn] 42348#44232: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:50:02 [notice] 42348#44232: signal process started
+2025/02/18 14:50:02 [warn] 39832#44824: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:50:02 [warn] 39832#44824: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:50:21 [error] 39832#30236: *379 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 14:56:19 [warn] 50856#3068: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:56:19 [warn] 50856#3068: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 14:56:19 [notice] 50856#3068: signal process started
+2025/02/18 14:56:20 [warn] 4940#45248: the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx/conf/nginx.conf:41
+2025/02/18 14:56:20 [warn] 4940#45248: the "http2_push_preload" directive is obsolete, ignored in C:\nginx/conf/nginx.conf:52
+2025/02/18 15:01:17 [error] 4940#9688: *391 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/18 15:11:38 [error] 4940#9688: *394 CreateFile() "C:/nginx/www/evoting/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: , request: "GET /favicon.ico HTTP/2.0", host: "localhost", referrer: "https://localhost/"
+2025/02/19 02:42:14 [alert] 48908#48500: worker process 51148 exited with code C0000142
+2025/02/19 02:42:14 [alert] 48908#48500: could not respawn worker

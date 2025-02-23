@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="система-электронных-выборов">Система электронных выборов</h1>
+<h2 id="краткое-описание-идеи">Краткое описание идеи</h2>
+<p>Система, позволяющая проводить выборы</p>
+<h2 id="предметная-область">Предметная область</h2>
+<p>Выборы в современном мире есть практически в каждой стране,
+проводятся регулярно, на разных уровнях (государственный, штат, область,
+муниципалитет). С недавнего времени (например, в Эстонии с 2005 года)
+страны используют ИТ-технологии в процессе проведения выборов, на разных
+этапах, в том числе в процессе голосования.</p>
+<h2 id="анализ-аналогичных-решений">Анализ аналогичных решений</h2>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 26%" />
+<col style="width: 40%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>Охватываемые этапы</th>
+<th>Полнота проверки данных</th>
+<th>Пользователи</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Эстония</td>
+<td>Досрочное голосование</td>
+<td>Избирателя, по цифровой подписи паспорта</td>
+<td>Избиратель</td>
+</tr>
+<tr>
+<td>Россия</td>
+<td>Голосование в дни выборов</td>
+<td>Избирателя, по аккаунту госуслуг</td>
+<td>Избиратель, наблюдатели</td>
+</tr>
+<tr>
+<td>Эквадор</td>
+<td>Голосование за рубежом</td>
+<td>Избирателя, по биометрии</td>
+<td>Избиратель</td>
+</tr>
+</tbody>
+</table>
+<h2 id="обоснование-целесообразности-и-актуальности">Обоснование
+целесообразности и актуальности</h2>
+<p>Выборы проводятся в большинстве стран мира, регулярно, в большом
+количестве. Системы электронного дистанционного голосования
+распространены несильно, в основном, наверное, из-за отторжения людьми.
+Однако, объем бумажной работы, генерируемый выборами, огромен -
+подписные листы, бюллетени, проверка подписей, ручной подсчет
+голосов.</p>
+<h2 id="use-case-диаграмма">Use-case диаграмма</h2>
+<p><img src="/static/img/img_1.png" alt="img_1.png" /> <img
+src="/static/img/img_2.png" alt="img_2.png" /> <img
+src="/static/img/img_3.png" alt="img_3.png" /></p>
+<h2 id="er-диаграмма-сущностей">ER-диаграмма сущностей</h2>
+<figure>
+<img src="/static/img/img.png" alt="img.png" />
+<figcaption aria-hidden="true">img.png</figcaption>
+</figure>
+<h2 id="пользовательские-сценарии">Пользовательские сценарии</h2>
+<ol type="1">
+<li>Избиратель регистрируется в приложении, вводя данные по паспорту.
+Проверяется корректность введенных данных, после чего избиратель
+получает доступ к личному кабинету, где идет сбор подписей или
+голосование на выборах.</li>
+<li>Кандидат регистрируется. ЦИК проверяет эти данные по своим правилам
+и допускает/не допускает кандидата до сбора подписей. Кандидат передает
+ЦИКу на одобрение текст предвыборной программы, кототрый ЦИК
+разрешает/запрещает. Кандидат, успешно сдавший свою предвыборную
+программу, допускается до сбора подписей.</li>
+<li>Прошедшие кандидаты передают ЦИКу в установленный срок номер
+избирательного счета, после этого кандидат попадает в бюллетень.</li>
+<li>В режиме голосования совершеннолетние избиратели (граждане РФ) могут
+единожды отдать голос за одного кандидата в бюллетене, через
+приложение.</li>
+<li>ЦИК завершает голосование, подсчитывает кто выиграл.</li>
+</ol>
+<h2 id="формализация-ключевых-бизнес-процессов">Формализация ключевых
+бизнес-процессов</h2>
+<h3 id="регистрацияавторизация">Регистрация/авторизация</h3>
+<figure>
+<img src="/static/img/img_4.png" alt="img_4.png" />
+<figcaption aria-hidden="true">img_4.png</figcaption>
+</figure>
+<h3 id="голосование">Голосование</h3>
+<figure>
+<img src="/static/img/img_5.png" alt="img_5.png" />
+<figcaption aria-hidden="true">img_5.png</figcaption>
+</figure>
+<h2 id="разбиение-на-компоненты">Разбиение на компоненты</h2>
+<figure>
+<img src="/static/img/img_6.png" alt="img_6.png" />
+<figcaption aria-hidden="true">img_6.png</figcaption>
+</figure>
+<h2 id="диаграмма-моделей-data-access">Диаграмма моделей Data
+Access</h2>
+<figure>
+<img src="/static/img/img_7.png" alt="img_7.png" />
+<figcaption aria-hidden="true">img_7.png</figcaption>
+</figure>
+<h2 id="макеты">Макеты</h2>
+<h2 id="главная-страница-список-выборов">### Главная страница / Список
+выборов</h2>
+<h2 id="e-voting-system-вход-регистрация">| [E-Voting System] [Вход /
+Регистрация] |</h2>
+<table>
+<thead>
+<tr>
+<th>Список активных выборов:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1) Выборы 2025</td>
+</tr>
+<tr>
+<td>Период: 2025-01-01 — 2025-01-10</td>
+</tr>
+<tr>
+<td>Статус: Открыты (проголосовало N)</td>
+</tr>
+<tr>
+<td>[Перейти к голосованию]</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>2) Региональные выборы</td>
+</tr>
+<tr>
+<td>Период: 2025-02-01 — 2025-02-05</td>
+</tr>
+<tr>
+<td>Статус: Предстоящие</td>
+</tr>
+<tr>
+<td>[Недоступно]</td>
+</tr>
+<tr>
+<td>————————————————-</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>[Ссылка] Результаты прошедших выборов</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">| Footer: Контакты, О системе, Copyright
+…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="страница-голосование-для-избирателя">### Страница «Голосование»
+(для избирателя)</h2>
+<h2 id="e-voting-system-вы-вошли-как-ivan">| [E-Voting System] (Вы вошли
+как Ivan) |</h2>
+<div class="line-block"> Выборы: “Выборы 2025” |<br />
+ Статус: Открыты (c 2025-01-01 по 2025-01-10) |</div>
+<table style="width:62%;">
+<colgroup>
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">| Список кандидатов: | | —————————————- |
+| 1) Иванов Иван (ID=2) | | Партия: None / Самовыдвижение | | [Выбрать]
+[Программа] | | 2) Петров Пётр (ID=3) | | Партия: “Прогрессивная” | |
+[Выбрать] [Программа] | | … |</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">| [Кнопка] Подтвердить выбор |</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block"> * Если голос уже подан - сообщение<br />
+   “Вы уже голосовали”</div>
+<hr />
+<h3 id="страница-администратор-созданиередактирование-выборов">Страница
+«Администратор» (создание/редактирование выборов)</h3>
+<table style="width:72%;">
+<colgroup>
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr>
+<th>| [E-Voting Admin Panel] (Вы вошли как Admin) |</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>| 1) Создать новые выборы | | [Поле] Название выборов [___________]
+| | [Поле] Дата начала [YYYY-MM-DD] | | [Поле] Дата окончания
+[YYYY-MM-DD] | | [Описание] [textarea: … ] | | [Кнопка] [Создать] |</td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">2) Зарегистрировать кандидата |<br />
+   [Поле] ФИО [___________] |<br />
+   [Поле] Дата рождения [YYYY-MM-DD] |<br />
+   [Поле] Паспорт [___________] |<br />
+   [кнопка] [Зарегистрировать] |</div>
+<table style="width:72%;">
+<colgroup>
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr>
+<th>| 3) Список выборов (административный вид) | | [таблица] ID,
+Название, Старт, Конец, Статус, | | [Перейти к результатам] |</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>| 4) [Ссылка] Посмотреть результаты выборов |</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
