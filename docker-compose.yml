@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: testpass
       POSTGRES_DB: testdb
     ports:
-      - "5433:5432"
+      - "5432:5432"
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "testuser", "-d", "testdb"]
       interval: 1s
@@ -31,17 +31,10 @@ services:
       DB_NAME: testdb
     volumes:
       - .:/app
+    ports:
+      - "8000:8000"       # Проброс порта для доступа к API извне
     command: >
       bash -c "
-      python scripts/setup_db.py &&
-      echo '================== Running unit tests ==============' &&
-      pytest tests/data_access --alluredir allure-results &&
-      pytest tests/usecases --alluredir allure-results &&
-      echo '================== Running integration tests ==============' &&
-      pytest tests/integration -v --alluredir allure-results &&
-      echo '================== Running BDD E2E tests =================' &&
-      echo '=== Running Pytest-BDD E2E tests ===' &&
-      pytest-bdd -features-base-dir=tests/bdd/features -v &&
-      echo '================== Running E2E tests =================' &&
-      pytest tests/e2e -v
+        python scripts/setup_db.py &&
+        uvicorn election_app.api.main:app --host 0.0.0.0 --port 8000 --reload
       "
