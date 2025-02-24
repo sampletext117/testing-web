@@ -20,6 +20,11 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
+class RegisterRequest(BaseModel):
+    email: str
+    password: str
+    role: str
+
 
 class LoginResponse(BaseModel):
     token: str
@@ -44,8 +49,17 @@ class TwoFAResponse(BaseModel):
 # В реальном приложении данные будут храниться в базе, а пароли — в виде хэшей.
 TECH_USER = {
     "email": "tech@example.com",
-    "password": "secret"  # В демо используем открытый текст; в продакшене всегда хэшируйте!
+    "password": "secret",  # В демо используем открытый текст; в продакшене всегда хэшируйте!
+    "role": "admin"
 }
+
+
+
+users = [
+    TECH_USER, 
+    {"email": "test1@example.com", "password": "test1", "role": "voter"},
+    {"email": "test2@example.com", "password": "test2", "role": "candidate"},
+]
 
 
 @router.post("/auth/login", response_model=LoginResponse)
@@ -54,11 +68,44 @@ async def login(req: LoginRequest):
     Endpoint для логина.
     Принимает email и пароль; если данные корректны, возвращает JWT-токен.
     """
-    if req.email != TECH_USER["email"] or req.password != TECH_USER["password"]:
+    found = None
+    for u in users:
+        if req.email == u["email"] and req.password == u["password"]:
+            found = u
+            break
+
+    if found is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
     payload = {
         "sub": req.email,
+        "role": u["role"],
+        "exp": datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
+    }
+    token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
+    return LoginResponse(token=token)
+
+@router.post("/auth/register", response_model=LoginResponse)
+async def register(req: RegisterRequest):
+    """
+    Endpoint для регистрации.
+    Принимает email и пароль и роль, возвращает JWT-токен.
+    """
+
+    found = None
+    for u in users:
+        if req.email == u["email"] and req.password == u["password"]:
+            found = u
+            break
+
+    if found is not None:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Already exists")
+
+    users.append({"email": req.email, "password": req.password, "role": req.role})
+
+    payload = {
+        "sub": req.email,
+        "role": req.role,
         "exp": datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
     }
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
