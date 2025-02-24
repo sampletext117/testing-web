@@ -1,0 +1,702 @@
+openapi: 3.0.3
+info:
+  title: E-Voting System API
+  description: REST API для системы электронного голосования
+  version: "1.0.0"
+
+servers:
+  - url: https://api.example.com
+
+paths:
+  /auth/login:
+    post:
+      tags:
+          - Auth
+      summary: Вход в систему
+      description: Принимает email и пароль; если данные корректны, возвращает JWT-токен.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        "200":
+          description: Успешный вход
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        "401":
+          description: Неверные учетные данные
+  /auth/change-password:
+    post:
+      tags:
+          - Auth
+      summary: Смена пароля
+      description: Принимает email, текущий пароль и новый пароль. Возвращает статус операции.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+      responses:
+        "200":
+          description: Пароль успешно изменен
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: Password changed successfully
+        "400":
+          description: Неверный текущий пароль
+        "404":
+          description: Пользователь не найден
+  /auth/2fa:
+    post:
+      tags:
+          - Auth
+      summary: Двухфакторная аутентификация
+      description: Проверяет введенный код 2FA.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TwoFARequest'
+      responses:
+        "200":
+          description: Успешная верификация
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TwoFAResponse'
+        "400":
+          description: Неверный код 2FA
+        "404":
+          description: Пользователь не найден
+  /voters:
+    get:
+      summary: Получить список избирателей
+      operationId: listVoters
+      tags:
+        - Voters
+      responses:
+        '200':
+          description: Успешный ответ (список избирателей)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voter'
+        '400':
+          description: Неверные параметры запроса
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено
+        '500':
+          description: Внутренняя ошибка сервера
+    post:
+      summary: Зарегистрировать нового избирателя
+      operationId: createVoter
+      tags:
+        - Voters
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoterCreateRequest'
+      responses:
+        '201':
+          description: Избиратель успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voter'
+        '400':
+          description: Некорректные данные (например, неверная дата рождения)
+        '401':
+          description: Не авторизован
+        '409':
+          description: Конфликт (например, паспорт уже зарегистрирован)
+        '500':
+          description: Внутренняя ошибка сервера
+
+  /voters/{voterId}:
+    get:
+      summary: Получить информацию об избирателе по ID
+      operationId: getVoter
+      tags:
+        - Voters
+      parameters:
+        - name: voterId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voter'
+        '400':
+          description: Неверный ID
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено
+        '404':
+          description: Избиратель не найден
+        '500':
+          description: Внутренняя ошибка сервера
+    delete:
+      summary: Удалить избирателя (пример)
+      operationId: deleteVoter
+      tags:
+        - Voters
+      parameters:
+        - name: voterId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Избиратель удалён успешно
+        '400':
+          description: Неверный ID
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено
+        '404':
+          description: Избиратель не найден
+        '500':
+          description: Внутренняя ошибка сервера
+
+  /candidates:
+    get:
+      summary: Список кандидатов
+      operationId: listCandidates
+      tags:
+        - Candidates
+      responses:
+        '200':
+          description: Возвращает список кандидатов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Candidate'
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено
+        '500':
+          description: Внутренняя ошибка сервера
+    post:
+      summary: Регистрация кандидата
+      operationId: createCandidate
+      tags:
+        - Candidates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CandidateCreateRequest'
+      responses:
+        '201':
+          description: Кандидат создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Candidate'
+        '400':
+          description: Невалидные данные (возраст, поля не заполнены)
+        '401':
+          description: Не авторизован
+        '409':
+          description: Конфликт (паспорт уже существует)
+        '500':
+          description: Внутренняя ошибка
+
+  /candidates/{candidateId}:
+    get:
+      summary: Получить информацию о кандидате
+      operationId: getCandidate
+      tags:
+        - Candidates
+      parameters:
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Candidate'
+        '400':
+          description: Неверный ID
+        '401':
+          description: Не авторизован
+        '404':
+          description: Кандидат не найден
+        '500':
+          description: Внутренняя ошибка
+    patch:
+      summary: Частичное обновление данных кандидата
+      operationId: patchCandidate
+      tags:
+        - Candidates
+      parameters:
+        - name: candidateId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Передаём только те поля, которые хотим обновить
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CandidatePatchRequest'
+      responses:
+        '200':
+          description: Данные кандидата обновлены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Candidate'
+        '400':
+          description: Некорректные данные (например, отрицательный баланс)
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено
+        '404':
+          description: Не найдено
+        '409':
+          description: Конфликт
+        '500':
+          description: Внутренняя ошибка
+
+  /elections:
+    get:
+      summary: Получить список выборов
+      operationId: listElections
+      tags:
+        - Elections
+      responses:
+        '200':
+          description: Список выборов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Election'
+        '401':
+          description: Не авторизован
+        '500':
+          description: Внутренняя ошибка
+    post:
+      summary: Создать новые выборы
+      operationId: createElection
+      tags:
+        - Elections
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ElectionCreateRequest'
+      responses:
+        '201':
+          description: Выборы созданы
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Election'
+        '400':
+          description: Невалидные даты (endDate < startDate)
+        '401':
+          description: Не авторизован
+        '409':
+          description: Конфликт (выборы уже существуют)
+        '500':
+          description: Внутренняя ошибка
+
+  /elections/{electionId}:
+    get:
+      summary: Детальная информация о выборах
+      operationId: getElection
+      tags:
+        - Elections
+      parameters:
+        - name: electionId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Election'
+        '400':
+          description: Неверный ID
+        '401':
+          description: Не авторизован
+        '404':
+          description: Не найден
+        '500':
+          description: Внутренняя ошибка
+
+  /votes:
+    post:
+      summary: Проголосовать
+      operationId: createVote
+      tags:
+        - Votes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoteCreateRequest'
+      responses:
+        '201':
+          description: Голос успешно записан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vote'
+        '400':
+          description: Невалидные данные (возраст <18, уже голосовал, не РФ)
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено (например, выборы закрыты)
+        '404':
+          description: Избиратель / кандидат / выборы не найдены
+        '409':
+          description: Конфликт (уже голосовал?)
+        '500':
+          description: Внутренняя ошибка
+    get:
+      summary: Получить список голосов
+      operationId: listVotes
+      tags:
+        - Votes
+      parameters:
+        - name: electionId
+          in: query
+          required: false
+          schema:
+            type: integer
+            description: Фильтр по ID выборов
+      responses:
+        '200':
+          description: Список голосов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vote'
+        '401':
+          description: Не авторизован
+        '500':
+          description: Внутренняя ошибка
+
+  /results:
+    get:
+      summary: Получить результаты конкретных выборов
+      operationId: getResults
+      tags:
+        - Results
+      parameters:
+        - name: electionId
+          in: query
+          required: true
+          description: ID выборов, для которых нужно вывести итоги
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Результаты выборов
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ElectionResults'
+        '400':
+          description: Неверные параметры
+        '401':
+          description: Не авторизован
+        '403':
+          description: Запрещено (например, итоги ещё нельзя смотреть)
+        '404':
+          description: Выборы не найдены
+        '500':
+          description: Внутренняя ошибка
+
+components:
+  schemas:
+    Voter:
+      type: object
+      properties:
+        voterId:
+          type: integer
+        fullName:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        passportId:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+
+    VoterCreateRequest:
+      type: object
+      required:
+        - fullName
+        - birthDate
+        - passportNumber
+        - country
+      properties:
+        fullName:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        passportNumber:
+          type: string
+        issuedBy:
+          type: string
+          nullable: true
+        issueDate:
+          type: string
+          format: date
+          nullable: true
+        country:
+          type: string
+
+    Candidate:
+      type: object
+      properties:
+        candidateId:
+          type: integer
+        fullName:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        passportId:
+          type: integer
+        campaignProgramId:
+          type: integer
+          nullable: true
+        accountId:
+          type: integer
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+
+    CandidateCreateRequest:
+      type: object
+      required:
+        - fullName
+        - birthDate
+        - passportNumber
+        - country
+      properties:
+        fullName:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        passportNumber:
+          type: string
+        issuedBy:
+          type: string
+          nullable: true
+        issueDate:
+          type: string
+          format: date
+          nullable: true
+        country:
+          type: string
+        programDescription:
+          type: string
+          nullable: true
+        initialBalance:
+          type: number
+          format: float
+          nullable: true
+
+    CandidatePatchRequest:
+      type: object
+      description: Поля, которые можно частично обновлять у кандидата.
+      properties:
+        programDescription:
+          type: string
+          nullable: true
+        balance:
+          type: number
+          format: float
+          nullable: true
+
+    Election:
+      type: object
+      properties:
+        electionId:
+          type: integer
+        electionName:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        description:
+          type: string
+          nullable: true
+
+    ElectionCreateRequest:
+      type: object
+      required:
+        - electionName
+        - startDate
+        - endDate
+      properties:
+        electionName:
+          type: string
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        description:
+          type: string
+          nullable: true
+
+    Vote:
+      type: object
+      properties:
+        voteId:
+          type: integer
+        voterId:
+          type: integer
+        candidateId:
+          type: integer
+        electionId:
+          type: integer
+        voteDate:
+          type: string
+          format: date-time
+
+    VoteCreateRequest:
+      type: object
+      required:
+        - voterId
+        - candidateId
+        - electionId
+      properties:
+        voterId:
+          type: integer
+        candidateId:
+          type: integer
+        electionId:
+          type: integer
+
+    CandidateWithCount:
+      type: object
+      properties:
+        candidateId:
+          type: integer
+        candidateName:
+          type: string
+        voteCount:
+          type: integer
+
+    ElectionResults:
+      type: object
+      properties:
+        electionId:
+          type: integer
+        electionName:
+          type: string
+          nullable: true
+        totalVotes:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CandidateWithCount'
+        winner:
+          $ref: '#/components/schemas/CandidateWithCount'
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@example.com
+        password:
+          type: string
+          example: secret
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+    ChangePasswordRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@example.com
+        current_password:
+          type: string
+          example: oldpassword
+        new_password:
+          type: string
+          example: newpassword
+    TwoFARequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: user@example.com
+        code:
+          type: string
+          example: "123456"
+    TwoFAResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+          example: "2FA verification successful"
