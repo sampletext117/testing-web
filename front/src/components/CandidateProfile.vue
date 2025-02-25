@@ -35,9 +35,6 @@ import { useCandidateStore } from '@/stores/candidate-store';
 import type { Candidate } from '@/api/types';
 import { Button, Card, InputNumber, InputText, Textarea } from 'primevue';
 import { reactive, ref } from 'vue';
-
-
-
 import DatePicker from 'primevue/datepicker';
 import { useRouter } from 'vue-router';
 

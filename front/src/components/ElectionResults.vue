@@ -1,11 +1,9 @@
 <template>
   <div class="flex flex-col gap-5 pb-10" v-if="dialogRef?.data.election">
-    <!-- <h2 class="text-xl">{{dialogRef?.data.election.election_name}}</h2> -->
     <div>
       {{ dialogRef?.data.election.description }}
     </div>
   </div>
-
 
   <div class="flex flex-col gap-5 pb-10">
     <h2 class="text-xl">Победитель</h2>
@@ -28,12 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useCandidateStore } from '@/stores/candidate-store';
-import { Button, Column, DataTable } from 'primevue';
-import type { Candidate } from '@/api/types';
-import { useVoteStore } from '@/stores/vote-store';
-import { useVoterStore } from '@/stores/voter-store';
-import { computed, inject, watchEffect, type Ref } from 'vue';
+import { Column, DataTable } from 'primevue';
+import { inject, watchEffect, type Ref } from 'vue';
 import type { DynamicDialogInstance } from 'primevue/dynamicdialogoptions';
 import { useElectionStore } from '@/stores/election-store';
 
