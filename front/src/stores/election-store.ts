@@ -1,6 +1,6 @@
 import { useApi } from '@/api/api';
-import type { Election, ElectionCreateRequest } from '@/api/types';
-import { mockElections } from '@/mocks';
+import type { Election, ElectionCreateRequest, ElectionResults } from '@/api/types';
+import { mockElections, mockResults } from '@/mocks';
 import { defineStore } from 'pinia';
 import { computed, ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
@@ -12,6 +12,7 @@ export const useElectionStore = defineStore('election', () => {
 
   const elections = ref<Election[]>([]);
   const election = ref<Election>();
+  const results = ref<ElectionResults>();
 
   const fetchElections = async () => {
     const { data } = await api.value.GET("/v1/elections");
@@ -42,13 +43,28 @@ export const useElectionStore = defineStore('election', () => {
     }
   }
 
+  const fetchResults = async (id: number) => {
+    const { data, error } = await api.value.GET("/v1/results", {
+      params: {
+        query: {
+          election_id: id,
+        }
+      }
+    });
+    if (data) {
+      results.value = data;
+    }
+    results.value = mockResults[0]
+  }
+
   return {
     elections,
     election,
+    results,
 
     fetchElections,
     fetchElection,
     createElection,
-
+    fetchResults,
   };
 });

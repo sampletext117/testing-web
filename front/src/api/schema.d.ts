@@ -448,8 +448,8 @@ export interface components {
         };
         CandidateWithCount: {
             candidate_id?: number;
-            candidateName?: string;
-            voteCount?: number;
+            candidate_name?: string;
+            vote_count?: number;
         };
         ElectionResults: {
             election_id?: number;

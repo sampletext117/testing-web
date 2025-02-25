@@ -17,11 +17,11 @@
     <Column field="election_name" header="Название"></Column>
     <Column field="start_date" header="Начало"></Column>
     <Column field="end_date" header="Окончание"></Column>
-    <!-- <Column header="">
+    <Column header="">
       <template #body="slotProps">
-        <Button @click="vote(slotProps.data)" label="Голосовать" :text="true"></Button>
+        <Button @click="showResults(slotProps.data)" label="Результаты" :text="true"></Button>
       </template>
-    </Column> -->
+    </Column>
   </DataTable>
 </template>
 
@@ -35,6 +35,7 @@ import SelectCandidateModal from './SelectCandidateModal.vue';
 import { useAuthStore } from '@/stores/auth-store';
 import { useVoterStore } from '@/stores/voter-store';
 import { useRouter } from 'vue-router';
+import ElectionResults from './ElectionResults.vue';
 
 const dialog = useDialog();
 const electionStore = useElectionStore();
@@ -63,6 +64,27 @@ const passedElections = computed(() => {
 
 const vote = (data: Election) => {
   dialog.open(SelectCandidateModal, {
+    props: {
+      header: data.election_name,
+      style: {
+        width: '50vw',
+        // height: '40vh',
+      },
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw'
+      },
+      modal: true,
+      dismissableMask: true,
+    },
+    data: {
+      election: data,
+    }
+  });
+}
+
+const showResults = (data: Election) => {
+  dialog.open(ElectionResults, {
     props: {
       header: data.election_name,
       style: {

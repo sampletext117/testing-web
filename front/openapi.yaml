@@ -658,9 +658,9 @@ components:
       properties:
         candidate_id:
           type: integer
-        candidateName:
+        candidate_name:
           type: string
-        voteCount:
+        vote_count:
           type: integer
 
     ElectionResults:

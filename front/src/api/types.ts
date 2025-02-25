@@ -8,6 +8,8 @@ export type Election = components['schemas']['Election']
 export type Candidate = components['schemas']['Candidate']
 export type Vote = components['schemas']['Vote']
 export type Voter = components['schemas']['Voter']
+export type ElectionResults = components['schemas']['ElectionResults']
+
 
 export type VoteCreateRequest = components['schemas']['VoteCreateRequest']
 export type VoterCreateRequest = components['schemas']['VoterCreateRequest']

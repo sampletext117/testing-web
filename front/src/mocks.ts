@@ -1,4 +1,4 @@
-import type { Candidate, Election, Vote, Voter } from "./api/types";
+import type { Candidate, Election, ElectionResults, Vote, Voter } from "./api/types";
 
 
 export const mockCandidates: Candidate[] = [
@@ -320,4 +320,40 @@ export const mockVotes: Vote[] = [
     "candidate_id": 2,
     "election_id": 2
   },
+]
+
+
+export const mockResults: ElectionResults[] = [
+  {
+    election_id: 0,
+    election_name: 'Выборы 500',
+    results: [
+      {
+        candidate_id: 1,
+        candidate_name: 'Валера Валерий Валерьевич',
+        vote_count: 2,
+      },
+      {
+        candidate_id: 2,
+        candidate_name: 'Валера Валерий Валерьевич',
+        vote_count: 2,
+      },
+      {
+        candidate_id: 3,
+        candidate_name: 'Валера Валерий Валерьевич',
+        vote_count: 2,
+      },
+      {
+        candidate_id: 4,
+        candidate_name: 'Валера Валерий Валерьевич',
+        vote_count: 2,
+      },
+    ],
+    totalVotes: 300,
+    winner: {
+      candidate_id: 2,
+      candidate_name: 'Валера Валерий Валерьевич',
+      vote_count: 102,
+    }
+  }
 ]
