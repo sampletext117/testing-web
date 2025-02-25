@@ -54,7 +54,7 @@ export const useElectionStore = defineStore('election', () => {
     if (data) {
       results.value = data;
     }
-    results.value = mockResults[0]
+    // results.value = mockResults[0]
   }
 
   return {
