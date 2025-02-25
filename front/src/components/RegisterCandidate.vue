@@ -1,5 +1,8 @@
 <template>
   <h2 class="text-xl pb-5">Регистрация кандидата</h2>
+  <div class="pb-4">
+    Зарегистрируйтесь как кандидат, чтобы иметь возможность быть выбранным
+  </div>
   <div class="flex">
     <Card style="width: 50rem;" class=" max-w-screen p-2">
       <template #title>Данные</template>

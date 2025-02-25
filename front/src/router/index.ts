@@ -4,6 +4,7 @@ import Dashboard from '@/components/Dashboard.vue'
 import ElectionList from '@/components/ElectionList.vue'
 import RegisterCandidate from '@/components/RegisterCandidate.vue'
 import RegisterVoter from '@/components/RegisterVoter.vue'
+import { useAuthStore } from '@/stores/auth-store'
 import DefaultView from '@/views/DefaultView.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
@@ -27,31 +28,53 @@ const router = createRouter({
           path: 'dashboard',
           name: 'dashboard',
           component: Dashboard,
+          meta: {
+            requiresAuth: true,
+          }
         },
         {
           path: 'admin',
           name: 'admin',
           component: AdminProfile,
+          meta: {
+            requiresAuth: true,
+            allowRoles: ['admin'],
+          }
         },
         {
           path: 'elections',
           name: 'elections',
           component: ElectionList,
+          meta: {
+            requiresAuth: false,
+          }
         },
         {
           path: 'candidate',
           name: 'candidate',
           component: CandidateProfile,
+          meta: {
+            requiresAuth: true,
+            allowRoles: ['candidate'],
+          }
         },
         {
           path: 'register/voter',
           name: 'register/voter',
           component: RegisterVoter,
+          meta: {
+            requiresAuth: true,
+            allowRoles: ['voter'],
+          }
         },
         {
           path: 'register/candidate',
           name: 'register/candidate',
           component: RegisterCandidate,
+          meta: {
+            requiresAuth: true,
+            allowRoles: ['candidate'],
+          }
         },
       ]
     },
@@ -86,9 +109,9 @@ const router = createRouter({
 
 // router.beforeEach((to, from, next) => {
 //   const authStore = useAuthStore();
-//   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+//   if (to.meta.requiresAuth && !authStore.isAuthorized) {
 //     next('/login');
-//   } else if (to.meta.role && authStore.userRole !== to.meta.role) {
+//   } else if (to.meta.allowRoles && !(to.meta.allowRoles as any).includes(authStore.tokenData?.role)) {
 //     next('/login');
 //   } else {
 //     next();
