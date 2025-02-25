@@ -4,6 +4,7 @@ import type { paths, components } from './schema';
 
 // export type LoginData = paths['/auth/login']['post']['requestBody']['content']['application/json']
 export type LoginData = components['schemas']['LoginRequest']
+export type RegisterData = components['schemas']['RegisterRequest']
 export type Election = components['schemas']['Election']
 export type Candidate = components['schemas']['Candidate']
 export type Vote = components['schemas']['Vote']

@@ -12,7 +12,12 @@
             <span>Пароль</span>
             <Password :feedback="false" @keydown.enter="login" toggleMask  v-model="password" />
           </div>
-          <Button @click="login"  label="Войти"></Button>
+          <Button @click="login" label="Войти"></Button>
+        </div>
+
+        <div class="flex flex-row pt-4 items-center justify-center gap-1">
+          <span class="pb-1">Еще не зарегистрированы?</span>
+          <Button to="/register" size="small" as="router-link" label="Регистрация" text></Button>
         </div>
       </template>
     </Card>

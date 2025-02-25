@@ -86,6 +86,11 @@ export const useCandidateStore = defineStore('candidate', () => {
     return !!localStorage.getItem(CANDIDATE_KEY);
   }
 
+  const clearSelfCandidate = () => {
+    localStorage.removeItem(CANDIDATE_KEY);
+    self.value = undefined;
+  }
+
   return {
     candidates,
     candidate,
@@ -96,5 +101,6 @@ export const useCandidateStore = defineStore('candidate', () => {
     patchSelf,
     hasSavedCandidate,
     createCandidate,
+    clearSelfCandidate,
   };
 });

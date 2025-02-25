@@ -7,10 +7,10 @@
   </div>
 
 
-  <div v-if="electStore.results?.winner" class="flex flex-col gap-5 pb-10">
+  <div class="flex flex-col gap-5 pb-10">
     <h2 class="text-xl">Победитель</h2>
 
-    <div>
+    <div v-if="electStore.results?.winner">
       <span class="font-bold">
         {{ electStore.results?.winner?.candidate_name }} ({{ electStore.results?.winner?.vote_count }} голосов)
       </span>

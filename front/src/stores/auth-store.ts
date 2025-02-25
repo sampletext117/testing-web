@@ -1,5 +1,5 @@
 import { useApi } from '@/api/api';
-import type { LoginData } from '@/api/types';
+import type { LoginData, RegisterData } from '@/api/types';
 import { jwtDecode } from 'jwt-decode';
 import { defineStore } from 'pinia';
 import { computed, ref, watchEffect } from 'vue';
@@ -55,16 +55,16 @@ export const useAuthStore = defineStore('auth', () => {
         }
     }
 
-    // async function register(register: RegisterData) {
-    //     const { data, error } = await api.POST('/register', {
-    //         body: register,
-    //     });
-    //     if (data?.token) {
-    //         token.value = data.token;
-    //     } else {
-    //         throw Error("Can't get token from register: " + error);
-    //     }
-    // }
+    async function register(register: RegisterData) {
+        const { data, error } = await api.POST('/auth/register', {
+            body: register,
+        });
+        if (data?.token) {
+            token.value = data.token;
+        } else {
+            throw Error("Can't get token from register: " + error);
+        }
+    }
 
     function logout() {
         token.value = null;
@@ -79,7 +79,7 @@ export const useAuthStore = defineStore('auth', () => {
         isExpiredToken,
 
         login,
-        // register,
+        register,
         logout,
     };
 });

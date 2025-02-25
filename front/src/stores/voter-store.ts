@@ -13,7 +13,7 @@ export const useVoterStore = defineStore('voter', () => {
 
   const voters = ref<Voter[]>([]);
   const voter = ref<Voter>();
-  const self = ref<Voter>(mockVotes[0]);
+  const self = ref<Voter>();
 
   const savedSelf = localStorage.getItem(VOTER_KEY);
   if (savedSelf) {
@@ -39,24 +39,29 @@ export const useVoterStore = defineStore('voter', () => {
   }
 
 
-   const createVoter = async (values: VoterCreateRequest) => {
-      const { data, error } = await api.value.POST("/v1/voters", {
-        body: {
-          ...values
-        }
-      });
-      if (data && !error) {
-        const voter: Voter = {
-          ...data,
-        }
-        self.value = voter;
-        localStorage.setItem(VOTER_KEY, JSON.stringify(voter));
+  const createVoter = async (values: VoterCreateRequest) => {
+    const { data, error } = await api.value.POST("/v1/voters", {
+      body: {
+        ...values
       }
+    });
+    if (data && !error) {
+      const voter: Voter = {
+        ...data,
+      }
+      self.value = voter;
+      localStorage.setItem(VOTER_KEY, JSON.stringify(voter));
     }
+  }
 
-    const hasSavedVoter = () => {
-      return !!localStorage.getItem(VOTER_KEY);
-    }
+  const hasSavedVoter = () => {
+    return !!localStorage.getItem(VOTER_KEY);
+  }
+
+  const clearSelfVoter = () => {
+    localStorage.removeItem(VOTER_KEY);
+    self.value = undefined;
+  }
 
 
   return {
@@ -67,6 +72,7 @@ export const useVoterStore = defineStore('voter', () => {
     fetchVoters,
     fetchVoter,
     hasSavedVoter,
-    createVoter
+    createVoter,
+    clearSelfVoter,
   };
 });

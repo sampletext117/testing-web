@@ -35,6 +35,12 @@
       <Column field="election_name" header="Название"></Column>
       <Column field="start_date" header="Начало"></Column>
       <Column field="end_date" header="Окончание"></Column>
+      <Column header="">
+        <template #body="slotProps">
+          <Button v-if="!isActive(slotProps.data)" @click="showResults(slotProps.data)" label="Результаты" :text="true"></Button>
+          <div v-if="isActive(slotProps.data)" class="h-10"></div>
+        </template>
+      </Column>
     </DataTable>
   </div>
 
@@ -60,15 +66,16 @@
 import { useCandidateStore } from '@/stores/candidate-store';
 import { useElectionStore } from '@/stores/election-store';
 import { useVoterStore } from '@/stores/voter-store';
-import { Button, Column, DataTable, DatePicker, InputText } from 'primevue';
+import { Button, Column, DataTable, DatePicker, InputText, useDialog } from 'primevue';
 import SelectButton from 'primevue/selectbutton';
 import { ref, watchEffect } from 'vue';
 import type { Election } from '@/api/types';
 import Textarea from 'primevue/textarea';
 import { DateTime } from 'luxon';
+import ElectionResults from './ElectionResults.vue';
 
 
-
+const dialog = useDialog();
 const electStore = useElectionStore();
 const candStore = useCandidateStore();
 const voterStore = useVoterStore();
@@ -103,6 +110,33 @@ const createElection = async () => {
     description: description.value,
   })
 }
+
+const isActive = (elect: Election) => {
+  return elect.end_date && Date.parse(elect.end_date) > Date.now();
+}
+
+
+const showResults = (data: Election) => {
+  dialog.open(ElectionResults, {
+    props: {
+      header: data.election_name,
+      style: {
+        width: '50vw',
+        // height: '40vh',
+      },
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw'
+      },
+      modal: true,
+      dismissableMask: true,
+    },
+    data: {
+      election: data,
+    }
+  });
+}
+
 
 </script>
 

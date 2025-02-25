@@ -6,6 +6,7 @@ import RegisterCandidate from '@/components/RegisterCandidate.vue'
 import RegisterVoter from '@/components/RegisterVoter.vue'
 import DefaultView from '@/views/DefaultView.vue'
 import LoginView from '@/views/LoginView.vue'
+import RegisterView from '@/views/RegisterView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 
@@ -52,36 +53,6 @@ const router = createRouter({
           name: 'register/candidate',
           component: RegisterCandidate,
         },
-
-        // {
-        //   path: 'voter',
-        //   name: 'voter',
-        //   component: VoterDashboard,
-        //   children: [
-        //     {
-        //       path: 'elections',
-        //       name: 'ElectionList',
-        //       component: ElectionList,
-        //     },
-        //     {
-        //       path: 'elections/:id',
-        //       name: 'ElectionDetails',
-        //       component: ElectionDetails,
-        //     }
-        //   ]
-        // },
-        // {
-        //   path: 'candidate',
-        //   name: 'candidate',
-        //   component: CandidateDashboard,
-        //   children: [
-        //     {
-        //       path: 'profile',
-        //       name: 'CandidateProfile',
-        //       component: CandidateProfile,
-        //     }
-        //   ]
-        // },
       ]
     },
     {
@@ -89,11 +60,11 @@ const router = createRouter({
       name: 'login',
       component: LoginView,
     },
-    // {
-    //   path: '/register',
-    //   name: 'login',
-    //   component: LoginView,
-    // },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView,
+    },
     // {
     //   path: '/:pathMatch(.*)*',
     //   name: 'NotFound',
